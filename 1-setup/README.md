@@ -37,6 +37,8 @@ Para editar el código vamos a aprovechar Visual Studio Code, en especial porque
 
 1. Una vez descargado, seguir los pasos de la instalación.
 
+1. Aparte de Visual Studio Code, se recomienda instalar la [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+
 ## Node.js & npm
 
 A la hora de crear aplicaciones con Angular 2, necesitamos tener instalado node.js y npm. El primero nos va a servir para poder correr las herramientas necesarias. El segundo, lo necesitamos dado que es la forma en la se distribuye los paquetes.
