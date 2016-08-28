@@ -406,10 +406,22 @@ En esta tarea se crearán los archivos de configuración de webpack. Para eso, s
 
 ## Tarea 4: Corriendo la applicación
 
-1. En la consola/terminal, ejecutar el siguiente comando
+1. En la consola/terminal, ejecutar el siguiente comando.
 
     ```
     npm start
     ```
 
 1. Abrir un navegador e ir a [http://localhost:8080](http://localhost:8080).
+
+    ![Navegando a la aplicación](./images/home.png "Navegando a la aplicación")
+
+    _Navegando a la aplicación_
+
+1. Jugar con la app un poco, seleccionando un heroe, modificando su nombre, creando nuevos y borrando los existentes.
+
+    ![Jugando con la applicación](./images/toh-anim.gif "Jugando con la applicación")
+
+    _Jugando con la applicación_
+
+    > **Nota**: La imagen es del tutorial oficial de Angular 2.
