@@ -123,10 +123,7 @@ A la hora de crear una aplicación con Angular 2, necesitamos configurar las dep
         "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": false
-      },
-      "exclude": [
-        "node_modules"
-      ]
+      }
     }
     ```
 
