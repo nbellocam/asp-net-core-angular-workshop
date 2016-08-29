@@ -2,7 +2,8 @@
   "version": "1.0.0-*",
   "buildOptions": {
     "debugType": "portable",
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true    
   },
   "dependencies": {
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
@@ -25,5 +26,12 @@
       },
       "imports": "dnxcore50"
     }
+  },
+  "scripts": {
+    "precompile": [ "npm run build"],
+    "prepublish": [
+      "npm install",
+      "npm run build"
+    ]
   }
 }

@@ -58,7 +58,7 @@ En este modulo veremos una primer versión de esta integración, realizando todo
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "webpack-dev-server --inline --hot --progress --port 8080",
-      "build": "rimraf wwwroot/*.js wwwroot/*.css && webpack --config config/webpack.prod.js --progress --profile --bail",
+      "build": "rimraf wwwroot/*.js wwwroot/*.css wwwroot/*.map && webpack --config config/webpack.prod.js --progress --profile --bail",
       "postinstall": "typings install"
     },
     ```
@@ -107,6 +107,21 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 1. Mover el archivo _index.html_ de la carpeta wwwroot a la nueva carpeta _Home_ y renombrarlo a _Index.cshtml_.
 
     > **Nota**: Con esto se convirtió el archivo original en la vista de la acción _Index_ del controlador _Home_.
+
+1. Abrir el _project.json_ y agregar la siguiente linea dentro del nodo de _buildOptions_.
+
+    ```json
+    "preserveCompilationContext": true
+    ```
+
+    > **Nota**: El nodo de _buildOptions_ debería quedar como el siguiente.
+    > 
+    > ```json
+    > "buildOptions": {
+    >   "debugType": "portable",
+    >   "emitEntryPoint": true,
+    >   "preserveCompilationContext": true    
+    > },
 
 1. Por último, actualizar la llamada al método _UseMvc_ en el método _Configure_ de la clase _Startup_ con el siguiente.
 
