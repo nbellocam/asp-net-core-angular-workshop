@@ -289,7 +289,7 @@ En esta tarea se crearán los archivos de configuración de webpack. Para eso, s
       output: {
           path: helpers.root('dist'),
           filename: '[name].js',
-          publicPath: '/dist/'
+          publicPath: '/'
       },
 
       htmlLoader: {
