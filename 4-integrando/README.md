@@ -52,6 +52,17 @@ En este modulo veremos una primer versión de esta integración, realizando todo
 
 1. Por último, mover el archivo _index.html_ a la carpeta _wwwroot_.
 
+1. Ahora, hay que actualizar el script de _build_ de _npm_ que borra la carpeta _dist_ para que borre en su lugar los archivos generados en la carpeta _wwwroot_. Para esto, reemplazar el script por el siguiente.
+
+    ```json
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "webpack-dev-server --inline --hot --progress --port 8080",
+      "build": "rimraf wwwroot/*.js wwwroot/*.css && webpack --config config/webpack.prod.js --progress --profile --bail",
+      "postinstall": "typings install"
+    },
+    ```
+
 1. Generar los archivos del cliente, ejecutando en la terminal/consola `npm run build`.
 
     ![Generando los archivos del cliente](./images/npm-run-build.png "Generando los archivos del cliente")
@@ -125,9 +136,117 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
 ## Tarea 3: Consumiendo la API
 
-1. // TODO  Actualizar el cliente.
+1. Agregar el modulo `@angular/http`
 
+1. Agregar el import de _AppModule_
+    ```js
+    import { HttpModule }     from '@angular/http';
+    ```
 
+1. Agregar el _HttpModule_ como parte de los imports
+
+    ```js
+    @NgModule({
+      imports: [
+        BrowserModule,
+        FormsModule,
+        routing,
+        HttpModule
+      ],
+      declarations: [
+        AppComponent,
+        HeroesComponent,
+        DashboardComponent,
+        HeroDetailComponent,
+      ],
+      providers: [
+        HeroService
+      ],
+      bootstrap: [ AppComponent ]
+    })
+    export class AppModule {
+    }
+    ```
+
+1. //TODO: service
+
+    ```csharp
+    import { Injectable } from '@angular/core';
+    import { Headers, Http, Response } from '@angular/http';
+
+    import 'rxjs/add/operator/toPromise';
+
+    import { Hero } from './hero';
+
+    @Injectable()
+    export class HeroService {
+      private heroesUrl = 'app/heroes';  // URL to web api
+
+      constructor(private http: Http) { }
+
+      getHeroes(): Promise<Hero[]> {
+        return this.http.get(this.heroesUrl)
+                  .toPromise()
+                  .then(response => response.json().data as Hero[])
+                  .catch(this.handleError);
+      }
+      
+      getHero(id: number): Promise<Hero> {
+        return this.getHeroes()
+                  .then(heroes => heroes.find(hero => hero.id === id));
+      }
+
+      save(hero: Hero): Promise<Hero>  {
+        if (hero.id) {
+          return this.put(hero);
+        }
+        return this.post(hero);
+      }
+
+      delete(hero: Hero): Promise<Response> {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        let url = `${this.heroesUrl}/${hero.id}`;
+
+        return this.http
+                  .delete(url, {headers: headers})
+                  .toPromise()
+                  .catch(this.handleError);
+      }
+
+      // Add new Hero
+      private post(hero: Hero): Promise<Hero> {
+        let headers = new Headers({
+          'Content-Type': 'application/json'});
+
+        return this.http
+                  .post(this.heroesUrl, JSON.stringify(hero), {headers: headers})
+                  .toPromise()
+                  .then(res => res.json().data)
+                  .catch(this.handleError);
+      }
+
+      // Update existing Hero
+      private put(hero: Hero): Promise<Hero> {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        let url = `${this.heroesUrl}/${hero.id}`;
+
+        return this.http
+                  .put(url, JSON.stringify(hero), {headers: headers})
+                  .toPromise()
+                  .then(() => hero)
+                  .catch(this.handleError);
+      }
+
+      private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
+      }
+    }
+    ```
 
 1. Como se modificó el cliente, tenemos que ejecutar `npm run build` para generar los archivos nuevamente.
 
@@ -136,3 +255,25 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 1. Navegar a [http://localhost:5000/](http://localhost:5000/) y comprobar que funcione.
 
     > **Nota**: En esta oportunidad, podemos probar de actualizar el sitio y deberíamos volver a la misma página en la que estabamos y no se perderá el estado.
+
+## Tarea 4: Automatizando las actualizaciones
+
+1. Actualizar el _project.json_
+
+    ```json
+    "scripts": {
+      "precompile": [ "npm run build"],
+      "prepublish": [
+        "npm install",
+        "npm run build"
+      ]
+    },
+    ```
+  
+1. Agregar el siguiente tooling en el _project.json_.
+
+    ```json
+    "tools": {
+      "Microsoft.DotNet.Watcher.Tools": "1.0.0-preview2-final"
+    },
+    ```
