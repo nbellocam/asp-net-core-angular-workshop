@@ -1,10 +1,12 @@
 # Introducción a Angular 2
 
-// TODO: Intro a Angular 2
-// TODO: Intro a Webpack y porque usarlo
-//El tutorial que se encuentra en la página de Angular 2 utiliza system.js en vez de webpack para buscar las referencias
+Angular 2 es la evolución de uno de los frameworks webs modernos mas utilizados. En el caso de esta segunda versión, se optó por realizar el desarrollo utilizando TypeScript, un lenguaje que compila a JavaScript y que brinda mayor seguridad a la hora de crear desarrollos mas grandes gracias al manejo de tipos y de clases. Este framework, apunta a mejorar la performance con respecto a su version anterior, así como a brindar un conjunto de herramientas mas modernas, como por ejemplo, permitiendo utilizarse en dispositivos mobiles creando componentes nativos gracias a NativeScript y similares.
 
-En este modulo vamos a crear una aplicación base con Angular 2 usando Typescript y Webpack. 
+Junto con la aparición de frameworks web mas modernos, aparecen nuevas necesidades y con ellas, nuevas herramientas. Este es el caso de Webpack, que fue tomando impulso en el último tiempo. Webpack es un bundler de modulos, lo cual implica que junta archivos con sus dependencias y genera archivos estaticos. Para el caso de Angular 2 con TypeScript, también va a servir para compilar el código a JavaScript, así como también minificarlo y otro tipo de tareas similares.
+
+El tutorial oficial de Angular 2 utiliza System.js en lugar de utilizar Webpack, pero como parte de este modulo se verá como crear la misma aplicación utilizando esta otra herramienta, dado que nos va a ayudar a la hora de integrar con ASP.NET Core.
+
+En este modulo vamos a crear una aplicación base con Angular 2 usando Typescript y Webpack basada en el tutorial oficial de Angular 2 que crea un sitio llamado _Tour Of Heroes_. 
 
 ## Tarea 1: Creando la estructura base
 
