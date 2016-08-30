@@ -1,4 +1,4 @@
-# Consumiendo la API de ASP.NET Core desde Angular 2
+# Integrando Angular 2 con ASP.NET Core
 
 Por mas que hoy en día se suelen hacer desarrollos por separado, creando APIs por un lado y el front end por el otro, normalmente estas dos partes se unen.
 

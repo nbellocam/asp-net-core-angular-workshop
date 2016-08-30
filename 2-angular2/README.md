@@ -1,4 +1,4 @@
-# Introducción a Angular 2
+# Creando una app de Angular 2 con Webpack
 
 Angular 2 es la evolución de uno de los frameworks webs modernos mas utilizados. En el caso de esta segunda versión, se optó por realizar el desarrollo utilizando TypeScript, un lenguaje que compila a JavaScript y que brinda mayor seguridad a la hora de crear desarrollos mas grandes gracias al manejo de tipos y de clases. Este framework, apunta a mejorar la performance con respecto a su version anterior, así como a brindar un conjunto de herramientas mas modernas, como por ejemplo, permitiendo utilizarse en dispositivos mobiles creando componentes nativos gracias a NativeScript y similares.
 

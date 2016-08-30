@@ -1,4 +1,4 @@
-# Introducción a ASP.NET Core
+# Creando una API REST con ASP.NET Core
 
 ASP.NET Core es una nuevo framework web, open-source ([GitHub](https://github.com/aspnet)) y multiplataforma pensado para crear aplicaciones web modernas, con foco en aprovechar la nube así como en solucionar algunos de los nuevos desafios como IoT (Internet of Things) y backends para mobile apps. 
 
