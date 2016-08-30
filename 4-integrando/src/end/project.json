@@ -28,7 +28,7 @@
     }
   },
   "scripts": {
-    "precompile": [ "npm run build"],
+    "precompile": [ "npm run dev-build"],
     "prepublish": [
       "npm install",
       "npm run build"

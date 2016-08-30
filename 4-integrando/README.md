@@ -63,7 +63,40 @@ En este modulo veremos una primer versión de esta integración, realizando todo
     },
     ```
 
-1. Generar los archivos del cliente, ejecutando en la terminal/consola `npm run build`.
+1. Agregar un nuevo script para la tarea de `dev-build` con el siguiente script.
+
+    ```json
+    "dev-build": "rimraf wwwroot/*.js wwwroot/*.css wwwroot/*.map && webpack --config config/webpack.dev-aspnet.js --progress --profile --bail",
+    ```
+
+1. Crear un nuevo archivo en la carpeta _config_ llamado _webpack.dev-aspnet.js_. Este archivo tendrá la configuración para desarrollo, que es la definida en la tarea recién creada.
+
+1. Agregar al archivo recién creado el siguiente código.
+
+    ```js
+    var webpackMerge = require('webpack-merge');
+    var ExtractTextPlugin = require('extract-text-webpack-plugin');
+    var commonConfig = require('./webpack.common.js');
+    var helpers = require('./helpers');
+
+    module.exports = webpackMerge(commonConfig, {
+      devtool: 'cheap-module-eval-source-map',
+
+      output: {
+          path: helpers.root('wwwroot'),
+          filename: '[name].js',
+          publicPath: '/'
+      },
+
+      plugins: [
+        new ExtractTextPlugin('[name].css')
+      ]
+    });
+    ```
+
+    > **Nota**: Este archivo es muy similar al de  _webpack.dev.js_ con la diferencia del nodo de _output_ y que no tiene el nodo _devServer_
+
+1. Generar los archivos del cliente, ejecutando en la terminal/consola `npm run dev-build`.
 
     ![Generando los archivos del cliente](./images/npm-run-build.png "Generando los archivos del cliente")
     
@@ -143,7 +176,7 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
 1. Ahora, ejecutar nuevamente la aplicación con `dotnet run`.
 
-    > **Nota**: En esta oportunidad no modificamos el cliente, con lo cual no hace falta volver a generar el paquete con `npm run build` como en el caso anterior.
+    > **Nota**: En esta oportunidad no modificamos el cliente, con lo cual no hace falta volver a generar el paquete con `npm run dev-build` como en el caso anterior.
 
 1. Navegar a [http://localhost:5000/](http://localhost:5000/) y comprobar que funcione.
 
@@ -153,7 +186,8 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
 1. Agregar el modulo `@angular/http`
 
-1. Agregar el import de _AppModule_
+1. Agregar el import de _AppModule_.
+
     ```js
     import { HttpModule }     from '@angular/http';
     ```
@@ -195,14 +229,14 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
     @Injectable()
     export class HeroService {
-      private heroesUrl = 'app/heroes';  // URL to web api
+      private heroesUrl = 'api/hero';  // URL to web api
 
       constructor(private http: Http) { }
 
       getHeroes(): Promise<Hero[]> {
         return this.http.get(this.heroesUrl)
                   .toPromise()
-                  .then(response => response.json().data as Hero[])
+                  .then(response => response.json() as Hero[])
                   .catch(this.handleError);
       }
       
@@ -225,7 +259,7 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
         let url = `${this.heroesUrl}/${hero.id}`;
 
         return this.http
-                  .delete(url, {headers: headers})
+                  .delete(url, {headers: headers, body:{}})
                   .toPromise()
                   .catch(this.handleError);
       }
@@ -238,7 +272,7 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
         return this.http
                   .post(this.heroesUrl, JSON.stringify(hero), {headers: headers})
                   .toPromise()
-                  .then(res => res.json().data)
+                  .then(res => res.json())
                   .catch(this.handleError);
       }
 
