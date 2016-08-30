@@ -184,15 +184,21 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
 ## Tarea 3: Consumiendo la API
 
-1. Agregar el modulo `@angular/http`
+1. Agregar el modulo `http` de angular. Para esto ejecutar el siguiente comando.
 
-1. Agregar el import de _AppModule_.
+    ```
+    npm install --save @angular/http@^2.0.0-rc.5
+    ```
+
+1. Ahora, abrir el archivo _app.module.ts_ en la carpeta _app_ dentro de _ClientApp_.
+
+1. Agregar el import de _HttpModule_.
 
     ```js
     import { HttpModule }     from '@angular/http';
     ```
 
-1. Agregar el _HttpModule_ como parte de los imports
+1. Agregar _HttpModule_ como parte de los imports.
 
     ```js
     @NgModule({
@@ -217,87 +223,97 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
     }
     ```
 
-1. //TODO: service
+1. Ahora, abrir el archivo _hero.service.ts_, también en la carpeta _app_ dentro de _ClientApp_.
 
-    ```csharp
-    import { Injectable } from '@angular/core';
+1. Agregar los siguientes imports del modulo de http.
+
+    ```js
     import { Headers, Http, Response } from '@angular/http';
+    ```
 
-    import 'rxjs/add/operator/toPromise';
+1. Agregar dentro de la clase _HeroService_ la siguiente variable y el constructor.
 
-    import { Hero } from './hero';
+    ```js
+    private heroesUrl = 'api/hero';  // URL to web api
 
-    @Injectable()
-    export class HeroService {
-      private heroesUrl = 'api/hero';  // URL to web api
+    constructor(private http: Http) { }
+    ```
 
-      constructor(private http: Http) { }
+    > **Nota**: Al constructor se le va a inyectar el servicio de http y se guarda como variable privada.
 
-      getHeroes(): Promise<Hero[]> {
-        return this.http.get(this.heroesUrl)
-                  .toPromise()
-                  .then(response => response.json() as Hero[])
-                  .catch(this.handleError);
-      }
-      
-      getHero(id: number): Promise<Hero> {
-        return this.getHeroes()
-                  .then(heroes => heroes.find(hero => hero.id === id));
-      }
+1. Remplazar la implementación del método `getHeroes` con la siguiente.
 
-      save(hero: Hero): Promise<Hero>  {
-        if (hero.id) {
-          return this.put(hero);
-        }
-        return this.post(hero);
-      }
-
-      delete(hero: Hero): Promise<Response> {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        let url = `${this.heroesUrl}/${hero.id}`;
-
-        return this.http
-                  .delete(url, {headers: headers, body:{}})
-                  .toPromise()
-                  .catch(this.handleError);
-      }
-
-      // Add new Hero
-      private post(hero: Hero): Promise<Hero> {
-        let headers = new Headers({
-          'Content-Type': 'application/json'});
-
-        return this.http
-                  .post(this.heroesUrl, JSON.stringify(hero), {headers: headers})
-                  .toPromise()
-                  .then(res => res.json())
-                  .catch(this.handleError);
-      }
-
-      // Update existing Hero
-      private put(hero: Hero): Promise<Hero> {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        let url = `${this.heroesUrl}/${hero.id}`;
-
-        return this.http
-                  .put(url, JSON.stringify(hero), {headers: headers})
-                  .toPromise()
-                  .then(() => hero)
-                  .catch(this.handleError);
-      }
-
-      private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
-      }
+    ```js
+    getHeroes(): Promise<Hero[]> {
+      return this.http.get(this.heroesUrl)
+                .toPromise()
+                .then(response => response.json() as Hero[])
+                .catch(this.handleError);
     }
     ```
 
-1. Como se modificó el cliente, tenemos que ejecutar `npm run build` para generar los archivos nuevamente.
+    > **Nota**: Con esto no se está modificando las firmas de los métodos, solo la implementación.
+
+1. Remplazar la implementación del método `getHero` con la siguiente.
+
+    ```js
+    getHero(id: number): Promise<Hero> {
+      return this.getHeroes()
+                .then(heroes => heroes.find(hero => hero.id === id));
+    }
+    ```
+
+1. Remplazar la implementación del método `delete` con la siguiente.
+
+    ```js
+    delete(hero: Hero): Promise<Response> {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+
+      let url = `${this.heroesUrl}/${hero.id}`;
+
+      return this.http
+                .delete(url, {headers: headers, body:{}})
+                .toPromise()
+                .catch(this.handleError);
+    }
+    ```
+
+1. Remplazar la implementación del método `post` con la siguiente.
+
+    ```js
+    // Add new Hero
+    private post(hero: Hero): Promise<Hero> {
+      let headers = new Headers({
+        'Content-Type': 'application/json'});
+
+      return this.http
+                .post(this.heroesUrl, JSON.stringify(hero), {headers: headers})
+                .toPromise()
+                .then(res => res.json())
+                .catch(this.handleError);
+    }
+    ```
+
+1. Finalmente, remplazar la implementación del método `put` con la siguiente.
+
+    ```js
+    // Update existing Hero
+    private put(hero: Hero): Promise<Hero> {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+
+      let url = `${this.heroesUrl}/${hero.id}`;
+
+      return this.http
+                .put(url, JSON.stringify(hero), {headers: headers})
+                .toPromise()
+                .then(() => hero)
+                .catch(this.handleError);
+    }
+    ```
+
+1. Como se modificó el cliente, tenemos que ejecutar `npm run dev-build` para generar los archivos nuevamente.
 
 1. Ahora, ejecutar nuevamente la aplicación con `dotnet run`.
 
@@ -307,17 +323,23 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
 ## Tarea 4: Automatizando las actualizaciones
 
-1. Actualizar el _project.json_
+El proceso de tener que correr dos comandos (`npm run dev-build` y `dotnet run`) mientras estamos desarrollando nuestras aplicaciones, no es para nada comodo. Por esto mismo existen algunos cambios que podemos hacer para facilitarnos la vida.
+
+1. Actualizar el _project.json_, agregando el siguiente nodo _scripts_
 
     ```json
     "scripts": {
-      "precompile": [ "npm run build"],
+      "precompile": [ "npm run dev-build"],
       "prepublish": [
         "npm install",
         "npm run build"
       ]
     },
     ```
+
+    > **Nota**: El script de _precompile_ se ejecutará siempre que se compile la solución, esto implica que cada vez que corramos `dotnet run`, se ejecutará automáticamente, por lo que no tendremos que ejecutar los dos comandos por separado.
+    >
+    > Por otro lado, el comando _prepublish_, es ideal para el momento de publicar la solución, instalando todos las dependencias de npm y corriendo el script de producción.
   
 1. Agregar el siguiente tooling en el _project.json_.
 
@@ -326,3 +348,13 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
       "Microsoft.DotNet.Watcher.Tools": "1.0.0-preview2-final"
     },
     ```
+
+    > **Nota**: Con esta herramienta, podremos ejecutar `dotnet watch`, que ante cambios en los archivos *.cs, volverá a compilar la solución, sin la necesidad de estar parando y volviendo a arrancar el server con `dotnet run`.
+
+1. Ejecutar `dotnet restore`.
+
+1. Ejecutar `dotnet watch run`.
+
+1. Finalmente, para probar, actualizar la api de hero cambiando los valores por default.
+
+    > **Nota**: Watch no va a ver los cambios en los archivos del cliente, pero si va a compilarlos ante cada cambio en los archivos del server.
