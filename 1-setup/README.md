@@ -1,11 +1,10 @@
 # Configurando el ambiente
 
-Antes de arrancar, necesitamos tener las herramientas instaladas.
-
+Antes de arrancar, se necesitan tener las herramientas instaladas.
 
 ## .NET Core
 
-A la hora de ejecutar ASP.NET Core podemos elegir usarlo con el clásico framework de .NET o con .NET Core. En este workshop vamos a usar el segundo, dado que nos permite ejecutar nuestras aplicaciones en la plataforma que quieran.
+A la hora de ejecutar ASP.NET Core podemos elegir usarlo con el clásico framework de .NET o con .NET Core. En este workshop se usará el segundo, dado que permite ejecutar las aplicaciones en cualquier plataforma.
 
 1. Navegar a [https://get.asp.net/](https://get.asp.net/).
 
@@ -27,7 +26,7 @@ A la hora de ejecutar ASP.NET Core podemos elegir usarlo con el clásico framewo
 
 ## Visual Studio Code
 
-Para editar el código vamos a aprovechar Visual Studio Code, en especial porque nos permite trabajar en todas las plataformas. Igualmente, se puede usar su editor de texto preferido.
+Para editar el código, se va a aprovechar Visual Studio Code, en especial porque permite trabajar en todas las plataformas al igual que .NET Core. Igualmente, se puede usar su editor de texto preferido.
 
 1. Navegar a [https://code.visualstudio.com](https://code.visualstudio.com) y descargar la versión correspondiente para tu plataforma.
 
@@ -41,7 +40,7 @@ Para editar el código vamos a aprovechar Visual Studio Code, en especial porque
 
 ## Node.js & npm
 
-A la hora de crear aplicaciones con Angular 2, necesitamos tener instalado node.js y npm. El primero nos va a servir para poder correr las herramientas necesarias. El segundo, lo necesitamos dado que es la forma en la se distribuye los paquetes.
+A la hora de crear aplicaciones con Angular 2, se necesita tener instalado node.js y npm. El primero sirve para poder correr las herramientas necesarias. El segundo, se necesita dado que es la forma en la se distribuye los paquetes.
 
 > **Nota**: Verificar que tenes instalado al menos la versión 4.x.x de node.js y la versión 3.x.x de npm corriendo `node -v` y `npm -v` en la terminal/consola.
 
