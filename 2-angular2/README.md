@@ -42,7 +42,6 @@ A la hora de crear una aplicación con Angular 2, necesitamos configurar las dep
       "@angular/compiler": "^2.0.0-rc.5",
       "@angular/core": "^2.0.0-rc.5",
       "@angular/forms": "^0.3.0",
-      "@angular/http": "^2.0.0-rc.5",
       "@angular/platform-browser": "^2.0.0-rc.5",
       "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
       "@angular/router": "^3.0.0-rc.1",
@@ -57,7 +56,7 @@ A la hora de crear una aplicación con Angular 2, necesitamos configurar las dep
     > **Nota**: Esto es similar a agregar las dependencias con el comando `npm install --save`. El siguiente comando sería lo mismo que agregar las dependencias a mano en el archivo y aparte ejecutar `npm install` luego.
     >
     > ```
-    > npm install --save @angular/common@2.0.0-rc.5 @angular/compiler@2.0.0-rc.5 @angular/core@2.0.0-rc.5 @angular/forms@0.3.0 @angular/http@2.0.0-rc.5 @angular/platform-browser@2.0.0-rc.5 @angular/platform-browser-dynamic@2.0.0-rc.5 @angular/router@3.0.0-rc.1 bootstrap@^3.3.6 core-js@^2.4.0 reflect-metadata@0.1.3 rxjs@5.0.0-beta.6 zone.js@0.6.12
+    > npm install --save @angular/common@2.0.0-rc.5 @angular/compiler@2.0.0-rc.5 @angular/core@2.0.0-rc.5 @angular/forms@0.3.0 @angular/platform-browser@2.0.0-rc.5 @angular/platform-browser-dynamic@2.0.0-rc.5 @angular/router@3.0.0-rc.1 bootstrap@^3.3.6 core-js@^2.4.0 reflect-metadata@0.1.3 rxjs@5.0.0-beta.6 zone.js@0.6.12
     > ```
 
 1. Ahora, agregaremos las dependencias de las herramientas que necesitamos para el desarrollo, tales como typescript y webpack. Para esto agregar el siguiente nodo dentro del _package.json_.
@@ -389,7 +388,6 @@ En esta tarea se crearán los archivos de configuración de webpack. Para eso, s
     import '@angular/platform-browser-dynamic';
     import '@angular/core';
     import '@angular/common';
-    import '@angular/http';
     import '@angular/router';
 
     // RxJS
