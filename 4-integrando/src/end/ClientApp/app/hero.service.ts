@@ -7,14 +7,14 @@ import { Hero } from './hero';
 
 @Injectable()
 export class HeroService {
-  private heroesUrl = 'app/heroes';  // URL to web api
+  private heroesUrl = 'api/hero';  // URL to web api
 
   constructor(private http: Http) { }
 
   getHeroes(): Promise<Hero[]> {
     return this.http.get(this.heroesUrl)
               .toPromise()
-              .then(response => response.json().data as Hero[])
+              .then(response => response.json() as Hero[])
               .catch(this.handleError);
   }
   
@@ -37,7 +37,7 @@ export class HeroService {
     let url = `${this.heroesUrl}/${hero.id}`;
 
     return this.http
-              .delete(url, {headers: headers})
+              .delete(url, {headers: headers, body:{}})
               .toPromise()
               .catch(this.handleError);
   }
@@ -50,7 +50,7 @@ export class HeroService {
     return this.http
               .post(this.heroesUrl, JSON.stringify(hero), {headers: headers})
               .toPromise()
-              .then(res => res.json().data)
+              .then(res => res.json())
               .catch(this.handleError);
   }
 
