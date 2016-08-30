@@ -20,8 +20,6 @@ var nextId = 21;
 
 @Injectable()
 export class HeroService {
-  private heroesUrl = 'api/hero';  // URL to web api
-
   getHeroes(): Promise<Hero[]> {
     return Promise.resolve(HEROES);
   }
