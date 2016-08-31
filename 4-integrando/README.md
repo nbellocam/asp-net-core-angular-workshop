@@ -1,10 +1,10 @@
 # Integrando Angular 2 con ASP.NET Core
 
-Por mas que hoy en día se suelen hacer desarrollos por separado, creando APIs por un lado y el front end por el otro, normalmente estas dos partes se unen.
+Por más que hoy en día se suelen hacer desarrollos por separado, creando APIs por un lado y el front end por el otro, normalmente estas dos partes se unen.
 
-Es momento de empezar a integrar los modulos anteriores, haciendo que la aplicación de Angular 2 consuma la API creada con ASP.NET Core. Aparte de esto, la aplicación creada en ASP.NET Core puede servir la aplicación cliente.
+Es momento de empezar a integrar los módulos anteriores, haciendo que la aplicación de Angular 2 consuma la API creada con ASP.NET Core. Aparte de esto, la aplicación creada en ASP.NET Core puede servir la aplicación cliente.
 
-En este modulo veremos una primer versión de esta integración, realizando todo a mano.
+En este módulo veremos una primer versión de esta integración, realizando todo a mano.
 
 ## Tarea 1: Integrando las soluciones
 
@@ -12,13 +12,13 @@ En este modulo veremos una primer versión de esta integración, realizando todo
 
 1. Abrir la carpeta _begin_ que se encuentra dentro de la carpeta _src_ y copiar el contenido de la carpeta _server_ a la carpeta de trabajo.
 
-    > **Nota**: El contenido de esta carpeta es el mismo que el que se genera cuando se termina el modulo de **ASP.NET Core**.
+    > **Nota**: El contenido de esta carpeta es el mismo que el que se genera cuando se termina el módulo de **ASP.NET Core**.
 
 1. Ahora repetir la operación con el contenido de la carpeta _client_
 
-    > **Nota**: El contenido de esta carpeta es el mismo que el que se genera cuando se termina el modulo de **Angular 2**.
+    > **Nota**: El contenido de esta carpeta es el mismo que el que se genera cuando se termina el módulo de **Angular 2**.
 
-1. Luego de tener todo el contenido junto, hay que actualizar ambas aplicaciones para que el server sirva los archivos del cliente. El primer paso será agregar el soporte para archivos estaticos en el server. Para eso, agregar la siguiente dependencia en el _project.json_.
+1. Luego de tener todo el contenido junto, hay que actualizar ambas aplicaciones para que el server sirva los archivos del cliente. El primer paso será agregar el soporte para archivos estáticos en el server. Para eso, agregar la siguiente dependencia en el _project.json_.
 
     ```json
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
@@ -38,7 +38,7 @@ En este modulo veremos una primer versión de esta integración, realizando todo
     }
     ```
 
-1. Luego, crear la carpeta _wwwroot_ que será la que tenga los archivos estaticos.
+1. Luego, crear la carpeta _wwwroot_ que será la que tenga los archivos estáticos.
 
 1. Con esto el servidor ya está actualizado y queda el cliente. Para esto, actualizar el nodo output del archivo _webpack.prod.js_.
 
@@ -106,7 +106,7 @@ En este modulo veremos una primer versión de esta integración, realizando todo
 
 1. Navegar a [http://localhost:5000/index.html](http://localhost:5000/index.html) y comprobar que funcione.
 
-> **Nota**: Este proceso es muy manual y propenso a errores. Aparte de esto, notar que si se actualiza la página o si no se pone explicitamente el archivo _index.html_, entonces el sitio quedará en blanco.
+> **Nota**: Este proceso es muy manual y propenso a errores. Aparte de esto, notar que si se actualiza la página o si no se pone explícitamente el archivo _index.html_, entonces el sitio quedará en blanco.
 >
 > En las próximas tareas se harán cambios para mejorar estos temas.
 
@@ -137,11 +137,11 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
 1. Ahora, crear la carpeta _Views_ y dentro de esta otra carpeta llamada _Home_.
 
-1. Mover el archivo _index.html_ de la carpeta wwwroot a la nueva carpeta _Home_ y renombrarlo a _Index.cshtml_.
+1. Mover el archivo _index.html_ de la carpeta _wwwroot_ a la nueva carpeta _Home_ y renombrarlo a _Index.cshtml_.
 
     > **Nota**: Con esto se convirtió el archivo original en la vista de la acción _Index_ del controlador _Home_.
 
-1. Abrir el _project.json_ y agregar la siguiente linea dentro del nodo de _buildOptions_.
+1. Abrir el _project.json_ y agregar la siguiente línea dentro del nodo de _buildOptions_.
 
     ```json
     "preserveCompilationContext": true
@@ -180,11 +180,11 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
 1. Navegar a [http://localhost:5000/](http://localhost:5000/) y comprobar que funcione.
 
-    > **Nota**: En esta oportunidad, podemos probar de actualizar el sitio y deberíamos volver a la misma página en la que estabamos, aunque se perderá el estado.
+    > **Nota**: En esta oportunidad, podemos probar de actualizar el sitio y deberíamos volver a la misma página, aunque se perderá el estado.
 
 ## Tarea 3: Consumiendo la API
 
-1. Agregar el modulo `http` de angular. Para esto ejecutar el siguiente comando.
+1. Agregar el módulo `http` de angular. Para esto ejecutar el siguiente comando.
 
     ```
     npm install --save @angular/http@^2.0.0-rc.5
@@ -225,7 +225,7 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
 1. Ahora, abrir el archivo _hero.service.ts_, también en la carpeta _app_ dentro de _ClientApp_.
 
-1. Agregar los siguientes imports del modulo de http.
+1. Agregar los siguientes imports del módulo _http_.
 
     ```js
     import { Headers, Http, Response } from '@angular/http';
@@ -319,11 +319,11 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
 1. Navegar a [http://localhost:5000/](http://localhost:5000/) y comprobar que funcione.
 
-    > **Nota**: En esta oportunidad, podemos probar de actualizar el sitio y deberíamos volver a la misma página en la que estabamos y no se perderá el estado.
+    > **Nota**: En esta oportunidad, podemos probar de actualizar el sitio y deberíamos volver a la misma página y no se perderá el estado.
 
 ## Tarea 4: Automatizando las actualizaciones
 
-El proceso de tener que correr dos comandos (`npm run dev-build` y `dotnet run`) mientras estamos desarrollando nuestras aplicaciones, no es para nada comodo. Por esto mismo existen algunos cambios que podemos hacer para facilitarnos la vida.
+El proceso de tener que correr dos comandos (`npm run dev-build` y `dotnet run`) mientras estamos desarrollando nuestras aplicaciones, no es para nada cómodo. Por esto mismo existen algunos cambios que podemos hacer para facilitarnos la vida.
 
 1. Actualizar el _project.json_, agregando el siguiente nodo _scripts_
 

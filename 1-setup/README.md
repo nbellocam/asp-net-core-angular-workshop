@@ -42,7 +42,7 @@ Para editar el código, se va a aprovechar Visual Studio Code, en especial porqu
 
 A la hora de crear aplicaciones con Angular 2, se necesita tener instalado node.js y npm. El primero sirve para poder correr las herramientas necesarias. El segundo, se necesita dado que es la forma en la se distribuye los paquetes.
 
-> **Nota**: Verificar que tenes instalado al menos la versión 4.x.x de node.js y la versión 3.x.x de npm corriendo `node -v` y `npm -v` en la terminal/consola.
+> **Nota**: Verificar que está instalada al menos la versión 4.x.x de node.js y la versión 3.x.x de npm corriendo `node -v` y `npm -v` en la terminal/consola.
 
 1. Navegar al sitio de descargas de node.js [https://nodejs.org/es/download/](https://nodejs.org/es/download/).
 

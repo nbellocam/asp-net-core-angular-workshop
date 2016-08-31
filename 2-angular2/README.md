@@ -1,12 +1,12 @@
 # Creando una app de Angular 2 con Webpack
 
-Angular 2 es la evolución de uno de los frameworks webs modernos mas utilizados. En el caso de esta segunda versión, se optó por realizar el desarrollo utilizando TypeScript, un lenguaje que compila a JavaScript y que brinda mayor seguridad a la hora de crear desarrollos mas grandes gracias al manejo de tipos y de clases. Este framework, apunta a mejorar la performance con respecto a su version anterior, así como a brindar un conjunto de herramientas mas modernas, como por ejemplo, permitiendo utilizarse en dispositivos mobiles creando componentes nativos gracias a NativeScript y similares.
+Angular 2 es la evolución de uno de los frameworks webs modernos más utilizados. En el caso de esta segunda versión, se optó por realizar el desarrollo utilizando TypeScript, un lenguaje que compila a JavaScript y que brinda mayor seguridad a la hora de crear desarrollos más grandes gracias al manejo de tipos y de clases. Este framework, apunta a mejorar la performance con respecto a su versión anterior, así como a brindar un conjunto de herramientas más modernas, como por ejemplo, permitiendo utilizarse en dispositivos móviles creando componentes nativos gracias a NativeScript y similares.
 
-Junto con la aparición de frameworks web mas modernos, aparecen nuevas necesidades y con ellas, nuevas herramientas. Este es el caso de Webpack, que fue tomando impulso en el último tiempo. Webpack es un bundler de modulos, lo cual implica que junta archivos con sus dependencias y genera archivos estaticos. Para el caso de Angular 2 con TypeScript, también va a servir para compilar el código a JavaScript, así como también minificarlo y otro tipo de tareas similares.
+Junto con la aparición de frameworks web más modernos, aparecen nuevas necesidades y con ellas, nuevas herramientas. Este es el caso de Webpack, que fue tomando impulso en el último tiempo. Webpack es un bundler de módulos, lo cual implica que junta archivos con sus dependencias y genera archivos estáticos. Para el caso de Angular 2 con TypeScript, también va a servir para compilar el código a JavaScript, así como también minificarlo y otro tipo de tareas similares.
 
-El tutorial oficial de Angular 2 utiliza System.js en lugar de utilizar Webpack, pero como parte de este modulo se verá como crear la misma aplicación utilizando esta otra herramienta, dado que nos va a ayudar a la hora de integrar con ASP.NET Core.
+El tutorial oficial de Angular 2 utiliza System.js en lugar de utilizar Webpack, pero como parte de este módulo se verá como crear la misma aplicación utilizando esta otra herramienta, dado que nos va a ayudar a la hora de integrar con ASP.NET Core.
 
-En este modulo vamos a crear una aplicación base con Angular 2 usando Typescript y Webpack basada en el tutorial oficial de Angular 2 que crea un sitio llamado _Tour Of Heroes_. 
+En este módulo vamos a crear una aplicación base con Angular 2 usando Typescript y Webpack basada en el tutorial oficial de Angular 2 que crea un sitio llamado _Tour Of Heroes_. 
 
 ## Tarea 1: Creando la estructura base
 
@@ -88,7 +88,7 @@ A la hora de crear una aplicación con Angular 2, necesitamos configurar las dep
     > npm install --save-dev angular2-template-loader@^0.4.0 css-loader@^0.23.1 extract-text-webpack-plugin@^1.0.1 file-loader@^0.8.5 html-loader@^0.4.3 raw-loader@^0.5.1 rimraf@^2.5.2 style-loader@^0.13.1 ts-loader@^0.8.1 typescript@^1.8.10 typings@^1.0.4 webpack@^1.13.0 webpack-dev-server@^1.14.1 webpack-merge@^0.14.0
     > ```
 
-    > **Nota 2**: En realidad, todas las dependencias en estos casos son dependencias de desarrollo (es decir _devDependencies_) dado que las herramientas van a copiar lo requerido de nuestras dependencias al los archivos que se utilizarán en producción. Sin embargo, se separan las dependencias para simplificar la comprensión de cuales son dependencias de la aplicación y cuales de las herramientas.
+    > **Nota 2**: En realidad, todas las dependencias en estos casos son dependencias de desarrollo (es decir _devDependencies_) dado que las herramientas van a copiar lo requerido de nuestras dependencias a los archivos que se utilizarán en producción. Sin embargo, se separan las dependencias para simplificar la comprensión de cuáles son dependencias de la aplicación y cuales de las herramientas.
 
 1. Por último, vamos a agregar algunos scripts al _package.json_ actualizando el nodo _scripts_ con el siguiente contenido.
 
@@ -103,7 +103,7 @@ A la hora de crear una aplicación con Angular 2, necesitamos configurar las dep
 
     > **Nota**: A continuación una breve descripción de cada script.
     >
-    > - _postinstall_: Este script se ejecutará automaticamente después de ejecutar `npm install` e instalará los typings definidos.
+    > - _postinstall_: Este script se ejecutará automáticamente después de ejecutar `npm install` e instalará los typings definidos.
     > 
     > - _start_: Este script ejecutará el server de desarrollo de webpack en el puerto 8080. Utilizará el archivo _webpack.config.js_ que se creará en la próxima tarea para la configuración de webpack.
     > 
@@ -152,7 +152,7 @@ A la hora de crear una aplicación con Angular 2, necesitamos configurar las dep
 
 ## Tarea 2: Configurando webpack
 
-En esta tarea se crearán los archivos de configuración de webpack. Para eso, se tendrán un archivo por para la configuración de desarrollo, otro para la de producción y uno mas con la configuración en común.
+En esta tarea se crearán los archivos de configuración de webpack. Para eso, se tendrán un archivo por para la configuración de desarrollo, otro para la de producción y uno más con la configuración en común.
 
 1. Crear un archivo con el nombre _webpack.config.js_. Este tendrá la configuración por defecto de webpack.
 
@@ -228,9 +228,9 @@ En esta tarea se crearán los archivos de configuración de webpack. Para eso, s
 
     > **Nota**: En esta configuración se definen tres items:
     > 
-    > 1. El punto de entrada (_entry_): en este caso será el archivo _main.ts_ dentro de la carpeta _ClientApp_ que se creará en la próxima tarea.
-    > 1. Los tipos de archivos a resolver (_resolve_): se buscarán los archivos con las extensiones en el orden de aparición, lo cual implica que para un import de un archivo llamado _file_, primero se buscará _file_, luego _file.js_ y por último _file.ts_.
-    > 1. Los modulos, especialmente los loaders (_module_): cada tipo de archivo es cargado por un modulo especial de webpack. En este punto se definen las regex para detectar el archivo y los loaders a utilizar.
+    > - **El punto de entrada** (_entry_): en este caso será el archivo _main.ts_ dentro de la carpeta _ClientApp_ que se creará en la próxima tarea.
+    > - **Los tipos de archivos a resolver** (_resolve_): se buscarán los archivos con las extensiones en el orden de aparición, lo cual implica que para un import de un archivo llamado _file_, primero se buscará _file_, luego _file.js_ y por último _file.ts_.
+    > - **Los módulos, especialmente los loaders** (_module_): cada tipo de archivo es cargado por un módulo especial de webpack. En este punto se definen las regex para detectar el archivo y los loaders a utilizar.
 
 1. Ahora, crear el archivo _webpack.dev.js_ dentro de la carpeta _config_, que tendrá las configuraciones propias de desarrollo.
 
@@ -266,12 +266,12 @@ En esta tarea se crearán los archivos de configuración de webpack. Para eso, s
     >
     > Esta configuración define los siguientes items:
     > 
-    > 1. Herramientas de desarrollo (_devtool_): acá se define el tipo de herramienta que se utilizará para ayudar a debuggear la aplicación creando source maps.
-    > 1. El punto de salida (_output_): en este caso será un archivo llamado igual al definido en el punto de entrada (osea, _main_) en la carpeta _dist_ y se expondrá como parte del web server en el puerto 8080.
-    > 1. Plugins: acá se define el plugin que va a extraer los estilos al archivo css con nombre igual al punto de entrada (osea, _main_).
-    > 1. Configuraciones propias del server de desarrollo (_devServer_): el devServer tiene varias configuraciones disponibles, en este caso configuramos para que soporte crear una Single Page Application (SPA), soportando cualquier tipo de path.
+    > - **Herramientas de desarrollo** (_devtool_): acá se define el tipo de herramienta que se utilizará para ayudar a debuggear la aplicación creando source maps.
+    > - **El punto de salida** (_output_): en este caso será un archivo llamado igual al definido en el punto de entrada (osea, _main_) en la carpeta _dist_ y se expondrá como parte del web server en el puerto 8080.
+    > - **Plugins**: acá se define el plugin que va a extraer los estilos al archivo css con nombre igual al punto de entrada (osea, _main_).
+    > - **Configuraciones propias del server de desarrollo** (_devServer_): el devServer tiene varias configuraciones disponibles, en este caso configuramos para que soporte crear una Single Page Application (SPA), soportando cualquier tipo de path.
 
-1. Por último, crear el archivo para las configuraciones de produción llamado _webpack.prod.js_ dentro de la carpeta _config_.
+1. Por último, crear el archivo para las configuraciones de producción llamado _webpack.prod.js_ dentro de la carpeta _config_.
 
 1. Agregar el siguiente contenido al archivo recién creado.
 
@@ -315,7 +315,7 @@ En esta tarea se crearán los archivos de configuración de webpack. Para eso, s
 
 ## Tarea 3: Creando la aplicación base
 
-1. Crear el archivo _index.html_ dentro de la carpeta raiz de la aplicación (donde está el _package.json_).
+1. Crear el archivo _index.html_ dentro de la carpeta raíz de la aplicación (donde está el _package.json_).
 
     ```html
     <!DOCTYPE html>
@@ -401,6 +401,27 @@ En esta tarea se crearán los archivos de configuración de webpack. Para eso, s
 
 1. Por último, agregar el contenido de la carpeta _assets_ dentro de la carpeta _ClientApp_. Estos archivos están basados en el resultado final de hacer el tutorial oficial de Angular 2.
 
+    > **Nota**: La carpeta _assets_ contiene dos carpetas, una llamada _public_ y la otra _app_. La primera, contiene estilos utilizados en la aplicación. 
+    >
+    > La carpeta _app_ contiene definiciones de componentes, modelos, servicios y módulos de la aplicación detalladas a continuación:
+    >
+    > - **app.component**: este componente es el que podríamos denominar _layout_ de la aplicación, incluyendo el título y la barra de navegación.
+    >
+    > - **app.module**: este archivo, define el módulo con todas sus dependencias. Este módulo, es el utilizado para arrancar la aplicación.
+    >
+    > - **app.routing**: en este archivo están definidas todas las rutas del lado del cliente.
+    >
+    > - **dashboard.component**: este componente es el primero que se visualiza que muestra recuadros con algunos héroes.
+    >
+    > - **hero**: este es el modelo utilizado en todos los componentes y servicios.
+    >
+    > - **hero-detail.component**: este componente es el detalle de los héroes, que permite su modificación.
+    >
+    > - **hero.service**: este es el servicio que tiene todas las operaciones sobre los héroes (altas, bajas, modificaciones, etc.)
+    >
+    > - **heroes.component**: este componente es el listado de héroes.
+
+
 ## Tarea 4: Corriendo la applicación
 
 1. En la consola/terminal, ejecutar el siguiente comando.
@@ -415,10 +436,10 @@ En esta tarea se crearán los archivos de configuración de webpack. Para eso, s
 
     _Navegando a la aplicación_
 
-1. Jugar con la app un poco, seleccionando un heroe, modificando su nombre, creando nuevos y borrando los existentes.
+1. Jugar con la app un poco, seleccionando un héroe, modificando su nombre, creando nuevos y borrando los existentes.
 
-    ![Jugando con la applicación](./images/toh-anim.gif "Jugando con la applicación")
+    ![Jugando con la aplicación](./images/toh-anim.gif "Jugando con la aplicación")
 
-    _Jugando con la applicación_
+    _Jugando con la aplicación_
 
     > **Nota**: La imagen es del tutorial oficial de Angular 2.

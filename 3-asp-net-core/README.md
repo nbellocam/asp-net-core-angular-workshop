@@ -1,10 +1,10 @@
 # Creando una API REST con ASP.NET Core
 
-ASP.NET Core es una nuevo framework web, open-source ([GitHub](https://github.com/aspnet)) y multiplataforma pensado para crear aplicaciones web modernas, con foco en aprovechar la nube así como en solucionar algunos de los nuevos desafios como IoT (Internet of Things) y backends para mobile apps. 
+ASP.NET Core es una nuevo framework web, open-source ([GitHub](https://github.com/aspnet)) y multiplataforma pensado para crear aplicaciones web modernas, con foco en aprovechar la nube así como en solucionar algunos de los nuevos desafíos como IoT (Internet of Things) y backends para aplicaciones móviles.
 
 Algo interesante a tener en cuenta es que ASP.NET Core puede correr sobre .NET Core o sobre el clásico .NET framework.
 
-En este modulo se verá como crear una API REST de cero usando .NET Core como base.
+En este módulo se verá como crear una API REST de cero usando .NET Core como base.
 
 ## Tarea 1 : Creando la app base
 
@@ -16,7 +16,7 @@ En este modulo se verá como crear una API REST de cero usando .NET Core como ba
     dotnet new
     ```
 
-1. Una vez creada la aplicación, abrir el _project.json_ y agregar la siguiente linea dentro de las dependencias, para agregar el HTTP server web.
+1. Una vez creada la aplicación, abrir el _project.json_ y agregar la siguiente línea dentro de las dependencias, para agregar el HTTP server web.
 
     ```json
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0"
@@ -49,7 +49,7 @@ En este modulo se verá como crear una API REST de cero usando .NET Core como ba
     > ```
 
 
-1. Ahora, hay que instalar localmente los paquetes, para esto ejecutamos la siguiente linea.
+1. Ahora, hay que instalar localmente los paquetes, para esto ejecutamos la siguiente línea.
 
     ```
     dotnet restore
@@ -239,7 +239,7 @@ Para esto en los siguientes pasos se configurará logging, como también el mane
 
     _Corriendo la aplicación con logging_
 
-1. Navegar en el browser a [http://localhost:5000](http://localhost:5000), que mostrará el mismo mensaje, pero esta vez en la terminal tendremos mas información.
+1. Navegar en el browser a [http://localhost:5000](http://localhost:5000), que mostrará el mismo mensaje, pero esta vez en la terminal tendremos más información.
 
     ![Los mensajes en la terminal](./images/terminal-logging.png "Los mensajes en la terminal")
 
@@ -249,7 +249,7 @@ Para esto en los siguientes pasos se configurará logging, como también el mane
 
 A la hora de crear una API REST, vamos a usar MVC. En el pasado, existía Web API como algo separado de MVC, pero en la nueva versión se unificó.
 
-1. Para agregar la dependencia, abrir el project.json y agregar la siguiente linea dentro de las dependencias, debajo de la que agregamos anteriormente.
+1. Para agregar la dependencia, abrir el project.json y agregar la siguiente línea dentro de las dependencias, debajo de la que agregamos anteriormente.
 
     ```json
     "Microsoft.AspNetCore.Mvc": "1.0.0"
@@ -357,7 +357,7 @@ A la hora de crear una API REST, vamos a usar MVC. En el pasado, existía Web AP
     }
     ```
 
-1. Luego, agregar las siguientes acciones para agregar nuevos heroes y modificarlos.
+1. Luego, agregar las siguientes acciones para agregar nuevos héroes y modificarlos.
 
     ```csharp
     [HttpPost]
@@ -376,7 +376,7 @@ A la hora de crear una API REST, vamos a usar MVC. En el pasado, existía Web AP
     }
     ```
 
-1. Por último, agregar la acción correspondiente para borrar heroes.
+1. Por último, agregar la acción correspondiente para borrar héroes.
 
     ```csharp
     [HttpDelete("{id}")]
@@ -397,11 +397,11 @@ A la hora de crear una API REST, vamos a usar MVC. En el pasado, existía Web AP
 
     _Corriendo la aplicación con la API_
 
-1. Navegar en el browser al endpoint de la API [http://localhost:5000/api/hero](http://localhost:5000/api/hero), que mostrará el listado de heroes en formato json.
+1. Navegar en el browser al endpoint de la API [http://localhost:5000/api/hero](http://localhost:5000/api/hero), que mostrará el listado de héroes en formato json.
 
-    ![Heroes como json](./images/heroes-json.png "Heroes como json")
+    ![Héroes como json](./images/heroes-json.png "Héroes como json")
 
-    _Heroes como json_
+    _Héroes como json_
 
     > **Nota**: También se pueden probar las otras acciones si se cuenta con un cliente como [Postman](https://www.getpostman.com).
 
