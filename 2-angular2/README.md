@@ -40,52 +40,52 @@ A la hora de crear una aplicación con Angular 2, necesitamos configurar las dep
 
     ```json
     "dependencies": {
-      "@angular/common": "^2.0.0-rc.5",
-      "@angular/compiler": "^2.0.0-rc.5",
-      "@angular/core": "^2.0.0-rc.5",
-      "@angular/forms": "^0.3.0",
-      "@angular/platform-browser": "^2.0.0-rc.5",
-      "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
-      "@angular/router": "^3.0.0-rc.1",
-      "bootstrap": "^3.3.7",
-      "core-js": "^2.4.1",
-      "reflect-metadata": "^0.1.3",
-      "rxjs": "^5.0.0-beta.6",
-      "zone.js": "^0.6.12"
+      "@angular/common": "2.0.0-rc.5",
+      "@angular/compiler": "2.0.0-rc.5",
+      "@angular/core": "2.0.0-rc.5",
+      "@angular/forms": "0.3.0",
+      "@angular/platform-browser": "2.0.0-rc.5",
+      "@angular/platform-browser-dynamic": "2.0.0-rc.5",
+      "@angular/router": "3.0.0-rc.1",
+      "bootstrap": "3.3.7",
+      "core-js": "2.4.1",
+      "reflect-metadata": "0.1.3",
+      "rxjs": "5.0.0-beta.6",
+      "zone.js": "0.6.12"
     }
     ```
 
     > **Nota**: Esto es similar a agregar las dependencias con el comando `npm install --save`. El siguiente comando sería lo mismo que agregar las dependencias a mano en el archivo y aparte ejecutar `npm install` luego.
     >
     > ```
-    > npm install --save @angular/common@2.0.0-rc.5 @angular/compiler@2.0.0-rc.5 @angular/core@2.0.0-rc.5 @angular/forms@0.3.0 @angular/platform-browser@2.0.0-rc.5 @angular/platform-browser-dynamic@2.0.0-rc.5 @angular/router@3.0.0-rc.1 bootstrap@^3.3.6 core-js@^2.4.0 reflect-metadata@0.1.3 rxjs@5.0.0-beta.6 zone.js@0.6.12
+    > npm install --save --save-exact @angular/common@2.0.0-rc.5 @angular/compiler@2.0.0-rc.5 @angular/core@2.0.0-rc.5 @angular/forms@0.3.0 @angular/platform-browser@2.0.0-rc.5 @angular/platform-browser-dynamic@2.0.0-rc.5 @angular/router@3.0.0-rc.1 bootstrap@3.3.6 core-js@2.4.0 reflect-metadata@0.1.3 rxjs@5.0.0-beta.6 zone.js@0.6.12
     > ```
 
 1. Ahora, agregaremos las dependencias de las herramientas que necesitamos para el desarrollo, tales como typescript y webpack. Para esto agregar el siguiente nodo dentro del _package.json_.
 
     ```json
     "devDependencies": {
-      "angular2-template-loader": "^0.4.0",
-      "css-loader": "^0.23.1",
-      "extract-text-webpack-plugin": "^1.0.1",
-      "file-loader": "^0.8.5",
-      "html-loader": "^0.4.3",
-      "raw-loader": "^0.5.1",
-      "rimraf": "^2.5.4",
-      "style-loader": "^0.13.1",
-      "ts-loader": "^0.8.2",
-      "typescript": "^1.8.10",
-      "typings": "^1.3.3",
-      "webpack": "^1.13.2",
-      "webpack-dev-server": "^1.15.0",
-      "webpack-merge": "^0.14.1"
+      "angular2-template-loader": "0.4.0",
+      "css-loader": "0.23.1",
+      "extract-text-webpack-plugin": "1.0.1",
+      "file-loader": "0.8.5",
+      "html-loader": "0.4.3",
+      "raw-loader": "0.5.1",
+      "rimraf": "2.5.4",
+      "style-loader": "0.13.1",
+      "ts-loader": "0.8.2",
+      "typescript": "1.8.10",
+      "typings": "1.3.3",
+      "webpack": "1.13.2",
+      "webpack-dev-server": "1.15.0",
+      "webpack-merge": "0.14.1"
     }
     ```
 
     > **Nota 1**: Nuevamente, esto es similar a agregar las dependencias con el comando `npm install --save-dev` (notar la diferencia entre `--save` y `--save-dev`). El siguiente comando equivale a agregar las dependencias a mano en el archivo y aparte ejecutar `npm install` luego.
     >
     > ```
-    > npm install --save-dev angular2-template-loader@^0.4.0 css-loader@^0.23.1 extract-text-webpack-plugin@^1.0.1 file-loader@^0.8.5 html-loader@^0.4.3 raw-loader@^0.5.1 rimraf@^2.5.2 style-loader@^0.13.1 ts-loader@^0.8.1 typescript@^1.8.10 typings@^1.0.4 webpack@^1.13.0 webpack-dev-server@^1.14.1 webpack-merge@^0.14.0
+    > npm install --save-dev --save-exact angular2-template-loader@0.4.0 css-loader@0.23.1 extract-text-webpack-plugin@1.0.1 file-loader@0.8.5 html-loader@0.4.3 raw-loader@0.5.1 rimraf@2.5.2 style-loader@0.13.1 ts-loader@0.8.1 typescript@1.8.10 typings@1.0.4 webpack@1.13.0 webpack-dev-server@1.14.1 webpack-merge@0.14.0
     > ```
 
     > **Nota 2**: En realidad, todas las dependencias en estos casos son dependencias de desarrollo (es decir _devDependencies_) dado que las herramientas van a copiar lo requerido de nuestras dependencias a los archivos que se utilizarán en producción. Sin embargo, se separan las dependencias para simplificar la comprensión de cuáles son dependencias de la aplicación y cuales de las herramientas.
