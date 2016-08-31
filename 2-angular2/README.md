@@ -358,13 +358,6 @@ En esta tarea se crearán los archivos de configuración de webpack. Para eso, s
     }
 
     platformBrowserDynamic().bootstrapModule(AppModule);
-
-    // Basic hot reloading support. Automatically reloads and restarts the Angular 2 app each time
-    // you modify source files. This will not preserve any application state other than the URL.
-    declare var module: any;
-    if (module.hot) {
-      module.hot.accept();
-    }
     ```
 
 1. Luego, crear el archivo _vendor.ts_ dentro de la carpeta _ClientApp_. Este archivo tendrá todas las referencias a frameworks y polyfills (funciones que nos completan funcionalidad que no está disponible en el browser) requeridas por nuestra aplicación.
