@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -31,6 +32,14 @@ namespace TourOfHeroes
       loggerFactory.AddConsole(Configuration.GetSection("Logging"));
       loggerFactory.AddDebug();
 
+      // remember to "set/export ASPNETCORE_ENVIRONMENT=Development"
+      if (env.IsDevelopment()) 
+      {
+        app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
+          HotModuleReplacement = true
+        });
+      }
+
       app.UseStaticFiles();
       
       app.UseMvc(routes =>
@@ -39,9 +48,8 @@ namespace TourOfHeroes
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
 
-        routes.MapRoute(
+        routes.MapSpaFallbackRoute(
           name: "spa-fallback",
-          template: "{*url}",
           defaults: new { controller = "Home", action = "Index" });
       });
     }
