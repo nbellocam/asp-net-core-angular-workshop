@@ -2,7 +2,7 @@
 
 _JavascriptServices_ es un conjunto de herramientas para ASP.NET Core, que entre otras cosas aportan algunos middlewares muy interesantes a la hora de crear Single Page Applications (SPAs) utilizando frameworks modernos como Angular 2 o React.
 
-En este modulo se verán algunas de las herramientas, especialmente las que forman parte de _SpaServices_.
+En este módulo se verán algunas de las herramientas, especialmente las que forman parte de _SpaServices_.
 
 ## Tarea 1: Mejorando el manejo de rutas
 
@@ -22,7 +22,7 @@ En este modulo se verán algunas de las herramientas, especialmente las que form
       defaults: new { controller = "Home", action = "Index" });
     ```
 
-    > **Nota**: Por mas que el código parezca muy similar, la ventaja que tiene esta ruta es que maneja casos de archivos que parezcan ser estáticos. Esto implica que si se pide por ejemplo `/images/ejemplo.png`, usando la ruta anterior va a devolver la página de Angular 2, mientras que con esta ruta devolverá 404 en caso de no encontrarse el archivo (que es justamente lo esperable para este ejemplo).
+    > **Nota**: Por maás que el código parezca muy similar, la ventaja que tiene esta ruta es que maneja casos de archivos que parezcan ser estáticos. Esto implica que si se pide por ejemplo `/images/ejemplo.png`, usando la ruta anterior va a devolver la página de Angular 2, mientras que con esta ruta devolverá 404 en caso de no encontrarse el archivo (que es justamente lo esperable para este ejemplo).
     >
     > El código a reemplazar es el siguiente.
     > 
@@ -37,7 +37,7 @@ En este modulo se verán algunas de las herramientas, especialmente las que form
 
 ## Tarea 2: Mejorando la experiencia de desarrollo
 
-1. Antes que nada, se necesitan algunas herramientas mas del lado de webpack, por lo cual hay que ejecutar el siguiente comando.
+1. Antes que nada, se necesitan algunas herramientas más del lado de webpack, por lo cual hay que ejecutar el siguiente comando.
 
     ```
     npm install --save-dev --save-exact aspnet-webpack@1.0.6 webpack-hot-middleware@2.10.0
@@ -49,7 +49,7 @@ En este modulo se verán algunas de las herramientas, especialmente las que form
     using Microsoft.AspNetCore.SpaServices.Webpack;
     ```
 
-1. Ahora, agregar el siguiente código dentro del método _Configure_ antes de la llamada a `app.UseStaticFiles();`, para agregar el middleware de Webpack
+1. Ahora, agregar el siguiente código dentro del método _Configure_ antes de la llamada a `app.UseStaticFiles();`, para agregar el middleware de Webpack.
 
     ```csharp
     // remember to "set/export ASPNETCORE_ENVIRONMENT=Development"
@@ -67,7 +67,7 @@ En este modulo se verán algunas de las herramientas, especialmente las que form
     module.exports = require('./config/webpack.dev-aspnet.js');
     ```
 
-1. Agregar el soporte para Hot Module Replacement (HMR) en el cliente, agregando el siguiente código en el archivo _main.ts_
+1. Agregar el soporte para _Hot Module Replacement_ (HMR) en el cliente, agregando el siguiente código en el archivo _main.ts_.
 
     ```typescript
     // Basic hot reloading support. Automatically reloads and restarts the Angular 2 app each time
@@ -78,13 +78,13 @@ En este modulo se verán algunas de las herramientas, especialmente las que form
     }
     ```
 
-1. Antes de correr la aplicación, actualizar el _project.json_ para eliminar la tarea que se corre antes de cada build. Para esto, eliminar la siguiente linea.
+1. Antes de correr la aplicación, actualizar el _project.json_ para eliminar la tarea que se corre antes de cada build. Para esto, eliminar la siguiente línea.
 
     ```json
     "precompile": [ "npm run dev-build"],
     ```
 
-1. Ahora para probar estos cambios hay que cambiar el entorno a desarrollo, para esto ejectuar:
+1. Ahora para probar estos cambios hay que cambiar el entorno a desarrollo, para esto ejecutar el siguiente comando.
 
     - En windows:
 
