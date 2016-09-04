@@ -187,7 +187,7 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 1. Agregar el módulo `http` de angular. Para esto ejecutar el siguiente comando.
 
     ```
-    npm install --save --save-exact @angular/http@2.0.0-rc.5
+    npm install --save --save-exact @angular/http@2.0.0-rc.6
     ```
 
 1. Ahora, abrir el archivo _app.module.ts_ en la carpeta _app_ dentro de _ClientApp_.
