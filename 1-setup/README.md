@@ -1,6 +1,8 @@
 # Configurando el ambiente
 
-Antes de arrancar, se necesitan tener las herramientas instaladas.
+Antes de arrancar, se necesitan tener las herramientas instaladas. Dentro de las herramientas se necesitará cualquier sistema operativo (_Windows, Linux o Mac_) y un browser (_Microsoft Edge, Chrome, Safari, Firefox, etc._). Aparte de esto, se requiere instalar _ASP.NET Core_, _node.js_ y _npm_. Por último se necesita un editor de texto (ej: _Visual Studio Code, Sublime, Atom, Vim, etc._). A continuación se explica como instalar alguna de ellas.
+
+> **Nota**: Para alguna de las herramientas pueden existir dependencias adicionales como es el caso de _brew_ para instalar .NET Core en Mac.
 
 ## .NET Core
 
