@@ -27,3 +27,12 @@ El workshop cuenta con los siguientes módulos:
 1. [Introducción a Javascript Services](./5-javascript-services)
 
     - Este último módulo, mostrará las herramientas más avanzadas a la hora de crear _Single Page Applications (SPAs)_ usando _ASP.NET Core_ y frameworks web modernos.
+
+
+## Feedback
+
+Una vez terminado el workshop, se agradece completar la [encuesta](https://nbellocam.typeform.com/to/FQV2BA) para poder mejorarlo. También se aceptan [issues](https://github.com/nbellocam/asp-net-core-angular-workshop/issues/new) y [pull requests](https://github.com/nbellocam/asp-net-core-angular-workshop/compare?expand=1#fork-destination-box).
+
+## Sobre el autor
+
+Creado por [Nicolas Bello Camilletti](https://nbellocam.me/). Pueden seguirme en twitter en [@nbellocam](https://twitter.com/nbellocam) o en mi [blog en español](https://medium.com/nbellocam-es/).
