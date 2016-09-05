@@ -12,11 +12,11 @@ En este módulo veremos una primer versión de esta integración, realizando tod
 
 1. Abrir la carpeta _begin_ que se encuentra dentro de la carpeta _src_ y copiar el contenido de la carpeta _server_ a la carpeta de trabajo.
 
-    > **Nota**: El contenido de esta carpeta es el mismo que el que se genera cuando se termina el módulo de **ASP.NET Core**.
+    > **Nota**: El contenido de esta carpeta es el mismo que el que se genera cuando se termina el módulo de **ASP.NET Core**, por lo que se puede utilizar el creado en vez del de la carpeta _begin_.
 
 1. Ahora repetir la operación con el contenido de la carpeta _client_
 
-    > **Nota**: El contenido de esta carpeta es el mismo que el que se genera cuando se termina el módulo de **Angular 2**.
+    > **Nota**: El contenido de esta carpeta es el mismo que el que se genera cuando se termina el módulo de **Angular 2**, por lo que se puede utilizar el creado en vez del de la carpeta _begin_.
 
 1. Luego de tener todo el contenido junto, hay que actualizar ambas aplicaciones para que el server sirva los archivos del cliente. El primer paso será agregar el soporte para archivos estáticos en el server. Para eso, agregar la siguiente dependencia en el _project.json_.
 

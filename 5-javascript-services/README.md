@@ -8,6 +8,8 @@ En este módulo se verán algunas de las herramientas, especialmente las que for
 
 1. Copiar la solución de la carpeta _begin_ que se encuentra dentro de la carpeta _src_ de este módulo a un lugar para trabajar.
 
+    > **Nota**: El contenido de esta carpeta es el mismo que el que se genera cuando se termina el módulo de integración, por lo que se puede utilizar el creado en vez del de la carpeta _begin_.
+
 1. Agregar SpaServices, para esto, abrir el archivo _project.json_ y agregar la siguiente dependencia.
 
     ```json
