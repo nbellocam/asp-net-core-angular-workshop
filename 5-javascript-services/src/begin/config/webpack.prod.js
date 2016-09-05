@@ -10,9 +10,9 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
 
   output: {
-      path: helpers.root('wwwroot'),
-      filename: '[name].js',
-      publicPath: '/'
+    path: helpers.root('wwwroot'),
+    filename: '[name].js',
+    publicPath: '/'
   },
 
   htmlLoader: {

@@ -17,8 +17,7 @@ namespace TourOfHeroes.Controllers
       new Hero() { Id= 16, Name= "RubberMan"},
       new Hero() { Id= 17, Name= "Dynama"},
       new Hero() { Id= 18, Name= "Dr IQ"},
-      new Hero() { Id= 19, Name= "Magma"},
-      new Hero() { Id= 20, Name= "Tornado"}
+      new Hero() { Id= 19, Name= "Magma"}
     };
 
     private static int nextId = 21;
