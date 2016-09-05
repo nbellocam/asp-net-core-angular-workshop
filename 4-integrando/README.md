@@ -333,6 +333,8 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
     }
     ```
 
+1. En este punto, se puede eliminar las variables _HEROES_ y _nextId_ que se encuentran al inicio del archivo y que se utilizaban en el servicio para simular la persistencia de los datos.
+
 1. Como se modificó el cliente, tenemos que ejecutar `npm run dev-build` para generar los archivos nuevamente.
 
     ![Generando los archivos nuevamente](./images/running-dev-build-again.png "Generando los archivos nuevamente")
