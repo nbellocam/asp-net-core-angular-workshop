@@ -427,6 +427,8 @@ A la hora de crear una _API REST_, vamos a usar [MVC](https://github.com/aspnet/
 
     > **Nota**: También se pueden probar las otras acciones si se cuenta con un cliente como [Postman](https://www.getpostman.com).
 
+1. Terminar la aplicación con **Ctrl + C**.
+
 ## Conclusiones
 
 Crear _REST APIs_ con _ASP.NET Core_ es muy simple. Aparte de esto, se puede crear y correr desde cualquier plataforma (Windows, Mac o Linux) sin ningún problema.
