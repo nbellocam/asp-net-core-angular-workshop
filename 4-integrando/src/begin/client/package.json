@@ -9,6 +9,7 @@
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "postinstall": "typings install"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
