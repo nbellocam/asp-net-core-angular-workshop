@@ -446,3 +446,9 @@ En esta tarea se crearán los archivos de configuración de _Webpack_. Para eso,
     _Jugando con la aplicación_
 
     > **Nota**: La imagen es del tutorial oficial de _Angular 2_.
+
+## Conclusiones
+
+Las aplicaciones web modernas soportan crear aplicaciones de notoria complejidad con un costo a la hora de inicializar el desarrollo de la misma.
+
+Luego de terminado este módulo, se cuetan con los conocimientos básicos para crear este tipo de aplicaciones sin problemas. Ahora solo queda consumir los datos desde una API y servir los archivos en producción.
