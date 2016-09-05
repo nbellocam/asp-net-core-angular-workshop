@@ -55,3 +55,10 @@ A la hora de crear aplicaciones con _Angular 2_, se necesita tener instalado [no
 1. Seleccionar la versión _LTS (Long term support)_ y la plataforma correspondiente.
 
 1. Una vez descargado, seguir los pasos de la instalación.
+
+
+## Conclusiones
+
+Con este tipo de herramientas se puede desarrollar desde cualquier plataforma (Windows, Mac o Linux) sin ningún problema, permitiendo una mayor flexibilidad.
+
+Ahora que el entorno de desarrollo esta listo, no queda otra cosa que empezar a desarrollar las aplicaciones.
