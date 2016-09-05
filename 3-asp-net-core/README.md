@@ -1,12 +1,12 @@
 # Creando una API REST con ASP.NET Core
 
-ASP.NET Core es una nuevo framework web, open-source ([GitHub](https://github.com/aspnet)) y multiplataforma pensado para crear aplicaciones web modernas, con foco en aprovechar la nube así como en solucionar algunos de los nuevos desafíos como IoT (Internet of Things) y backends para aplicaciones móviles.
+[ASP.NET Core](http://www.asp.net/core) es una nuevo framework web, open-source ([GitHub](https://github.com/aspnet)) y multiplataforma pensado para crear aplicaciones web modernas, con foco en aprovechar la nube así como en solucionar algunos de los nuevos desafíos como _IoT (Internet of Things)_ y backends para aplicaciones móviles.
 
-Algo interesante a tener en cuenta es que ASP.NET Core puede correr sobre .NET Core o sobre el clásico .NET framework.
+Algo interesante a tener en cuenta es que _ASP.NET Core_ puede correr sobre [.NET Core](https://www.microsoft.com/net/core/platform) o sobre el [clásico .NET framework](https://www.microsoft.com/net/framework).
 
-En este módulo se verá como crear una API REST de cero usando .NET Core como base.
+En este módulo se verá como crear una _API REST_ de cero usando _.NET Core_.
 
-## Tarea 1 : Creando la app base
+## Tarea 1: Creando la aplicación base
 
 1. Crear una nueva carpeta para trabajar y abrir una terminal/consola en ese directorio. 
 
@@ -16,7 +16,11 @@ En este módulo se verá como crear una API REST de cero usando .NET Core como b
     dotnet new
     ```
 
-1. Una vez creada la aplicación, abrir el _project.json_ y agregar la siguiente línea dentro de las dependencias, para agregar el HTTP server web.
+    ![Ejecutando dotnet new](./images/dotnet-new.png "Ejecutando dotnet new")
+
+    _Ejecutando dotnet new_
+
+1. Una vez creada la aplicación, abrir el _project.json_ y agregar la siguiente línea dentro de las dependencias, para agregar el server _HTTP_.
 
     ```json
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0"
@@ -55,6 +59,10 @@ En este módulo se verá como crear una API REST de cero usando .NET Core como b
     dotnet restore
     ```
 
+    ![Ejecutando dotnet restore](./images/dotnet-restore.png "Ejecutando dotnet restore")
+
+    _Ejecutando dotnet restore_
+
     > **Nota**: Al realizar esta tarea, se creará un nuevo archivo _project.lock.json_.
 
 1. Luego de que termine de instalar todos las dependencias, vamos a crear un nuevo archivo llamado _Startup.cs_ y agregamos el siguiente contenido.
@@ -79,9 +87,9 @@ En este módulo se verá como crear una API REST de cero usando .NET Core como b
     }
     ```
 
-    > **Nota**: Cambiar el namespace si es necesario/preferido. Tener en cuenta en cambiarlo en todos los archivos que se crearán a continuación.
+    > **Nota**: Cambiar el _namespace_ si es necesario/preferido. Tener en cuenta en cambiarlo en todos los archivos que se crearán a continuación.
 
-1. Ahora es momento de actualizar el _Program.cs_ para hacer que ejecute el web host. Para esto, usamos el siguiente código.
+1. Ahora es momento de actualizar el _Program.cs_ para hacer que ejecute el _web host_. Para esto, usamos el siguiente código.
 
     ```csharp
     using Microsoft.AspNetCore.Hosting;
@@ -103,7 +111,7 @@ En este módulo se verá como crear una API REST de cero usando .NET Core como b
     }
     ```
 
-    > **Nota**: Es interesante notar que estamos corriendo una aplicación de consola que instancia el WebHostBuilder y usando una fluent API, configura y corre el Web Server. 
+    > **Nota**: Es interesante notar que estamos corriendo una aplicación de consola que instancia el _WebHostBuilder_ y usando una fluent API, configura y corre el _Web Server_. 
 
 1. Para probar que todo ande correctamente hasta este punto, ejecutar el siguiente comando.
 
@@ -112,20 +120,22 @@ En este módulo se verá como crear una API REST de cero usando .NET Core como b
     ```
 
     ![Corriendo la aplicación](./images/first-run.png "Corriendo la aplicación")
-
+    
     _Corriendo la aplicación_
 
-1. Navegar en el browser a [http://localhost:5000](http://localhost:5000). Con esto se mostrará un “Hello World” en el browser.
+1. Luego, navegar en el browser a [http://localhost:5000](http://localhost:5000). Con esto se mostrará un “Hello World” en el browser.
 
     ![Mensaje de Hello World](./images/first-run-browser.png "Mensaje de Hello World")
 
     _Mensaje de Hello World_
 
+1. Terminar la aplicación con **Ctrl + C**.
+
 ## Tarea 2: Agregando logging y configuraciones
 
 A la hora de crear aplicaciones, resulta muy útil poder saber que pasa y si hay errores. Aparte de esto, el tipo de información que nos interesa cambia según el momento y el entorno donde nos encontramos. 
 
-Para esto en los siguientes pasos se configurará logging, como también el manejo de configuraciones desde diferentes fuentes.
+Para esto en los siguientes pasos se configurará _logging_, como también el manejo de configuraciones desde diferentes fuentes.
 
 1. Abrir el _project.json_ y agregar las siguientes dependencias.
 
@@ -140,7 +150,11 @@ Para esto en los siguientes pasos se configurará logging, como también el mane
 
 1. Ejecutar en la terminal `dotnet restore` para actualizar las dependencias y el _project.lock.json_.
 
-1. Ahora, abrir el _Program.cs_ y actualizar el contenido para pasarle las configuraciones al WebHostBuilder.
+    ![Ejecutando dotnet restore nuevamente](./images/logging-restore.png "Ejecutando dotnet restore nuevamente")
+
+    _Ejecutando dotnet restore nuevamente_
+
+1. Ahora, abrir el _Program.cs_ y actualizar el contenido para pasarle las configuraciones al _WebHostBuilder_.
 
     ```csharp
     using System.IO;
@@ -171,7 +185,7 @@ Para esto en los siguientes pasos se configurará logging, como también el mane
     }
     ```
 
-1. Abrir el _Startup.cs_ y actualizar el contenido
+1. Luego, abrir el _Startup.cs_ y actualizar el contenido por el siguiente.
 
     ```csharp
     using Microsoft.AspNetCore.Builder;
@@ -214,7 +228,13 @@ Para esto en los siguientes pasos se configurará logging, como también el mane
     }
     ```
 
-1. Agregar el archivo _appsettings.json_
+    > **Nota**: Este código agrega lo siguiente:
+    >
+    > - **Constructor**: recibe una variable con la información del entorno y crea una configuración sumando el archivo _appsettings.json_ y las variables de entorno.
+    > - **Configuration**: esta propiedad tiene toda la configuración de las diferentes fuentes usadas en el constructor.
+    > - **Método Configure**: en este método se agrega la configuración del _loggerFactory_ y se crea una instancia que se utiliza ante cada request.
+
+1. Agregar el archivo _appsettings.json_ con las configuraciones para _logging_.
 
     ```json
     {
@@ -245,11 +265,13 @@ Para esto en los siguientes pasos se configurará logging, como también el mane
 
     _Los mensajes en la terminal_
 
+1. Terminar la aplicación con **Ctrl + C**.
+
 ## Tarea 3: Creando la API REST
 
-A la hora de crear una API REST, vamos a usar MVC. En el pasado, existía Web API como algo separado de MVC, pero en la nueva versión se unificó.
+A la hora de crear una _API REST_, vamos a usar [MVC](https://github.com/aspnet/Mvc). En el pasado, existía _Web API_ como algo separado de _MVC_, pero en la nueva versión se unificó.
 
-1. Para agregar la dependencia, abrir el project.json y agregar la siguiente línea dentro de las dependencias, debajo de la que agregamos anteriormente.
+1. Para agregar la dependencia, abrir el _project.json_ y agregar la siguiente línea dentro de las dependencias, debajo de la que agregamos anteriormente.
 
     ```json
     "Microsoft.AspNetCore.Mvc": "1.0.0"
@@ -257,7 +279,7 @@ A la hora de crear una API REST, vamos a usar MVC. En el pasado, existía Web AP
 
 1. Ejecutar en la terminal `dotnet restore` para actualizar las dependencias y el _project.lock.json_.
 
-1. Luego, actualizar el _Startup.cs_ para registrar MVC en el pipeline de procesamiento de los requests. Para esto, primero, agregar el siguiente `using`.
+1. Luego, actualizar el _Startup.cs_ para registrar _MVC_ en el pipeline de procesamiento de los requests. Para esto, primero, agregar el siguiente `using`.
 
     ```csharp
     using Microsoft.Extensions.DependencyInjection;
@@ -286,7 +308,7 @@ A la hora de crear una API REST, vamos a usar MVC. En el pasado, existía Web AP
 
 1. Ahora, crear una carpeta _Models_ y dentro de ella crear un archivo con el nombre _Hero.cs_.
 
-1. Agregar el siguiente código al archivo recién creado, que define la clase Hero con un id y un nombre.
+1. Agregar el siguiente código al archivo recién creado, que define la clase _Hero_ con un _id_ y un _nombre_.
 
     ```csharp
     namespace TourOfHeroes.Models
@@ -407,4 +429,4 @@ A la hora de crear una API REST, vamos a usar MVC. En el pasado, existía Web AP
 
 ## Conclusiones
 
-Crear REST APIs con ASP.NET Core es muy simple. Aparte de esto, se puede crear y correr desde cualquier plataforma (Windows, Mac o Linux) sin ningún problema.
+Crear _REST APIs_ con _ASP.NET Core_ es muy simple. Aparte de esto, se puede crear y correr desde cualquier plataforma (Windows, Mac o Linux) sin ningún problema.
