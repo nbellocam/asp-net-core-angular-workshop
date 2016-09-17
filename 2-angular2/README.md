@@ -45,25 +45,25 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
 
     ```json
     "dependencies": {
-      "@angular/common": "2.0.0-rc.6",
-      "@angular/compiler": "2.0.0-rc.6",
-      "@angular/core": "2.0.0-rc.6",
-      "@angular/forms": "2.0.0-rc.6",
-      "@angular/platform-browser": "2.0.0-rc.6",
-      "@angular/platform-browser-dynamic": "2.0.0-rc.6",
-      "@angular/router": "3.0.0-rc.2",
+      "@angular/common": "2.0.0",
+      "@angular/compiler": "2.0.0",
+      "@angular/core": "2.0.0",
+      "@angular/forms": "2.0.0",
+      "@angular/platform-browser": "2.0.0",
+      "@angular/platform-browser-dynamic": "2.0.0",
+      "@angular/router": "3.0.0",
       "bootstrap": "^3.3.7",
       "core-js": "2.4.1",
       "reflect-metadata": "0.1.8",
-      "rxjs": "5.0.0-beta.11",
-      "zone.js": "0.6.17"
+      "rxjs": "5.0.0-beta.12",
+      "zone.js": "0.6.23"
     }
     ```
 
     > **Nota**: Esto es similar a agregar las dependencias con el comando `npm install --save`. El siguiente comando sería lo mismo que agregar las dependencias a mano en el archivo y aparte ejecutar `npm install` luego.
     >
     > ```
-    > npm install --save --save-exact @angular/common@2.0.0-rc.6 @angular/compiler@2.0.0-rc.6 @angular/core@2.0.0-rc.6 @angular/forms@2.0.0-rc.6 @angular/platform-browser@2.0.0-rc.6 @angular/platform-browser-dynamic@2.0.0-rc.6 @angular/router@3.0.0-rc.2 bootstrap@3.3.7 core-js@2.4.1 reflect-metadata@0.1.8 rxjs@5.0.0-beta.11 zone.js@0.6.17
+    > npm install --save --save-exact @angular/common@2.0.0 @angular/compiler@2.0.0 @angular/core@2.0.0 @angular/forms@2.0.0 @angular/platform-browser@2.0.0 @angular/platform-browser-dynamic@2.0.0 @angular/router@3.0.0 bootstrap@3.3.7 core-js@2.4.1 reflect-metadata@0.1.8 rxjs@5.0.0-beta.12 zone.js@0.6.23
     > ```
 
 1. Ahora, agregaremos las dependencias de las herramientas que necesitamos para el desarrollo, tales como _TypeScript_ y _Webpack_. Para esto agregar el siguiente nodo dentro del _package.json_.
@@ -71,10 +71,10 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
     ```json
     "devDependencies": {
       "angular2-template-loader": "0.5.0",
-      "css-loader": "0.24.0",
+      "css-loader": "0.25.0",
       "extract-text-webpack-plugin": "1.0.1",
       "file-loader": "0.9.0",
-      "html-loader": "0.4.3",
+      "html-loader": "0.4.4",
       "raw-loader": "0.5.1",
       "rimraf": "2.5.4",
       "style-loader": "0.13.1",
@@ -82,7 +82,7 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
       "typescript": "1.8.10",
       "typings": "1.3.3",
       "webpack": "1.13.2",
-      "webpack-dev-server": "1.15.1",
+      "webpack-dev-server": "1.15.2",
       "webpack-merge": "0.14.1"
     }
     ```
@@ -90,7 +90,7 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
     > **Nota 1**: Nuevamente, esto es similar a agregar las dependencias con el comando `npm install --save-dev` (notar la diferencia entre `--save` y `--save-dev`). El siguiente comando equivale a agregar las dependencias a mano en el archivo y aparte ejecutar `npm install` luego.
     >
     > ```
-    > npm install --save-dev --save-exact angular2-template-loader@0.5.0 css-loader@0.24.0 extract-text-webpack-plugin@1.0.1 file-loader@0.9.0 html-loader@0.4.3 raw-loader@0.5.1 rimraf@2.5.4 style-loader@0.13.1 ts-loader@0.8.2 typescript@1.8.10 typings@1.3.3 webpack@1.13.2 webpack-dev-server@1.14.1 webpack-merge@0.14.0
+    > npm install --save-dev --save-exact angular2-template-loader@0.5.0 css-loader@0.25.0 extract-text-webpack-plugin@1.0.1 file-loader@0.9.0 html-loader@0.4.4 raw-loader@0.5.1 rimraf@2.5.4 style-loader@0.13.1 ts-loader@0.8.2 typescript@1.8.10 typings@1.3.3 webpack@1.13.2 webpack-dev-server@1.15.2 webpack-merge@0.14.1
     > ```
 
     > **Nota 2**: En realidad, todas las dependencias en estos casos son dependencias de desarrollo (es decir _devDependencies_) dado que las herramientas van a copiar lo requerido de nuestras dependencias a los archivos que se utilizarán en producción. Sin embargo, se separan las dependencias para simplificar la comprensión de cuáles son dependencias de la aplicación y cuales de las herramientas.

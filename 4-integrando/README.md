@@ -203,7 +203,7 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 1. Agregar el módulo `http` de angular. Para esto ejecutar el siguiente comando.
 
     ```
-    npm install --save --save-exact @angular/http@2.0.0-rc.6
+    npm install --save --save-exact @angular/http@2.0.0
     ```
 
     ![Instalando el módulo http](./images/installing-http.png "Instalando el módulo http")
@@ -373,7 +373,7 @@ El proceso de tener que correr dos comandos (`npm run dev-build` y `dotnet run`)
 
     ```json
     "tools": {
-      "Microsoft.DotNet.Watcher.Tools": "1.0.0-preview2-final"
+      "Microsoft.DotNet.Watcher.Tools": "1.0.0-*"
     }
     ```
 

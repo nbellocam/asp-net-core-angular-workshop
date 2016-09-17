@@ -23,7 +23,7 @@ En este módulo se verá como crear una _API REST_ de cero usando _.NET Core_.
 1. Una vez creada la aplicación, abrir el _project.json_ y agregar la siguiente línea dentro de las dependencias, para agregar el server _HTTP_.
 
     ```json
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0"
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.1"
     ```
 
     > **Nota**: El contenido del _project.json_ en este punto debería quedar similar al siguiente:
@@ -36,14 +36,14 @@ En este módulo se verá como crear una _API REST_ de cero usando _.NET Core_.
     >     "emitEntryPoint": true
     >   },
     >   "dependencies": {
-    >     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0"
+    >     "Microsoft.AspNetCore.Server.Kestrel": "1.0.1"
     >   },
     >   "frameworks": {
     >     "netcoreapp1.0": {
     >       "dependencies": {
     >         "Microsoft.NETCore.App": {
     >           "type": "platform",
-    >           "version": "1.0.0"
+    >           "version": "1.0.1"
     >         }
     >       },
     >       "imports": "dnxcore50"
@@ -274,7 +274,7 @@ A la hora de crear una _API REST_, vamos a usar [MVC](https://github.com/aspnet/
 1. Para agregar la dependencia, abrir el _project.json_ y agregar la siguiente línea dentro de las dependencias, debajo de la que agregamos anteriormente.
 
     ```json
-    "Microsoft.AspNetCore.Mvc": "1.0.0"
+    "Microsoft.AspNetCore.Mvc": "1.0.1"
     ```
 
 1. Ejecutar en la terminal `dotnet restore` para actualizar las dependencias y el _project.lock.json_.
