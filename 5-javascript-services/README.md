@@ -118,7 +118,9 @@ En este módulo se verán algunas de las herramientas, especialmente las que for
 
     _Ejecutando la aplicación_
 
-1. Una vez que está corriendo la aplicación, abrir el archivo _app.component.ts_ dentro de la carpeta _app_ en _ClientApp_ y modificar el template del título.
+1. Una vez que está corriendo la aplicación, comprobar que funciona como antes.
+
+1. Ahora, abrir el archivo _app.component.ts_ dentro de la carpeta _app_ en _ClientApp_ y modificar el template del título.
 
     ```
     <h1>{{title}} updated</h1>
