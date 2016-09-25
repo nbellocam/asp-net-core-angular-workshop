@@ -447,6 +447,8 @@ En esta tarea se crearán los archivos de configuración de _Webpack_. Para eso,
 
     > **Nota**: La imagen es del tutorial oficial de _Angular 2_.
 
+1. Luego de probar la app, terminar la aplicación en la consola con **Ctrl + C**.
+
 ## Conclusiones
 
 Las aplicaciones web modernas soportan crear aplicaciones de notoria complejidad con un costo a la hora de inicializar el desarrollo de la misma.
