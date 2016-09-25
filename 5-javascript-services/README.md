@@ -50,7 +50,7 @@ En este módulo se verán algunas de las herramientas, especialmente las que for
 1. Antes que nada, se necesitan algunas herramientas más del lado de _Webpack_, por lo cual hay que ejecutar el siguiente comando.
 
     ```
-    npm install --save-dev --save-exact aspnet-webpack@1.0.9 webpack-hot-middleware@2.12.2
+    npm install --save-dev --save-exact aspnet-webpack@1.0.11 webpack-hot-middleware@2.12.2
     ```
 
     ![Instalando las nuevas herramientas](./images/new-webpack-tools.png "Instalando las nuevas herramientas")
