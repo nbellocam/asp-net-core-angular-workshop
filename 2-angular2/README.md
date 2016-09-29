@@ -152,7 +152,7 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
     npm install
     ```
 
-    > **Nota**: Esto debería crear dos nuevas carpetas *node_modules* y _typings_. Si no se creó la carpeta _typings_ ejecutar el comando nuevamente.
+    > **Nota**: Esto debería crear dos nuevas carpetas *node_modules* y _typings_. Si no se creó la carpeta _typings_ ejecutar el comando nuevamente. Si el error persiste, ejecutar el comando *npm install -g typings* y luego *typings install*.
 
 
 ## Tarea 2: Configurando _Webpack_
