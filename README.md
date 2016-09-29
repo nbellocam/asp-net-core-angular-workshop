@@ -36,3 +36,10 @@ Una vez terminado el workshop, se agradece completar la [encuesta](https://nbell
 ## Sobre el autor
 
 Creado por [Nicolas Bello Camilletti](https://nbellocam.me/). Pueden seguirme en twitter en [@nbellocam](https://twitter.com/nbellocam) o en mi [blog en español](https://medium.com/nbellocam-es/).
+
+## Para seguir informado
+
+Algunos links para seguir informado
+
+- [ASP.NET Community Standup LATAM](https://www.youtube.com/channel/UC2HK4gLLoBUnQT5KBGUkM4g)
+- [Net-Latam Slack](https://slack.net-latam.com)
