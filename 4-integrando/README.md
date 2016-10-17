@@ -60,8 +60,7 @@ En este módulo veremos una primer versión de esta integración, realizando tod
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "webpack-dev-server --inline --hot --progress --port 8080",
-      "build": "rimraf wwwroot/*.js wwwroot/*.css wwwroot/*.map && webpack --config config/webpack.prod.js --progress --profile --bail",
-      "postinstall": "typings install"
+      "build": "rimraf wwwroot/*.js wwwroot/*.css wwwroot/*.map && webpack --config config/webpack.prod.js --progress --profile --bail"
     },
     ```
 
@@ -203,7 +202,7 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 1. Agregar el módulo `http` de angular. Para esto ejecutar el siguiente comando.
 
     ```
-    npm install --save --save-exact @angular/http@2.0.0
+    npm install --save --save-exact @angular/http@2.1.0
     ```
 
     ![Instalando el módulo http](./images/installing-http.png "Instalando el módulo http")
