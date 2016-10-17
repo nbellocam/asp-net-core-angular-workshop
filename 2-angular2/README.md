@@ -45,25 +45,27 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
 
     ```json
     "dependencies": {
-      "@angular/common": "2.0.0",
-      "@angular/compiler": "2.0.0",
-      "@angular/core": "2.0.0",
-      "@angular/forms": "2.0.0",
-      "@angular/platform-browser": "2.0.0",
-      "@angular/platform-browser-dynamic": "2.0.0",
-      "@angular/router": "3.0.0",
+      "@angular/common": "2.1.0",
+      "@angular/compiler": "2.1.0",
+      "@angular/core": "2.1.0",
+      "@angular/forms": "2.1.0",
+      "@angular/platform-browser": "2.1.0",
+      "@angular/platform-browser-dynamic": "2.1.0",
+      "@angular/router": "3.1.0",
+      "@types/node": "6.0.45",
       "bootstrap": "^3.3.7",
       "core-js": "2.4.1",
+      "event-source-polyfill": "0.0.7",
       "reflect-metadata": "0.1.8",
       "rxjs": "5.0.0-beta.12",
-      "zone.js": "0.6.23"
-    }
+      "zone.js": "0.6.25"
+    },
     ```
 
     > **Nota**: Esto es similar a agregar las dependencias con el comando `npm install --save`. El siguiente comando sería lo mismo que agregar las dependencias a mano en el archivo y aparte ejecutar `npm install` luego.
     >
     > ```
-    > npm install --save --save-exact @angular/common@2.0.0 @angular/compiler@2.0.0 @angular/core@2.0.0 @angular/forms@2.0.0 @angular/platform-browser@2.0.0 @angular/platform-browser-dynamic@2.0.0 @angular/router@3.0.0 bootstrap@3.3.7 core-js@2.4.1 reflect-metadata@0.1.8 rxjs@5.0.0-beta.12 zone.js@0.6.23
+    > npm install --save --save-exact @angular/common@2.1.0 @angular/compiler@2.1.0 @angular/core@2.1.0 @angular/forms@2.1.0 @angular/platform-browser@2.1.0 @angular/platform-browser-dynamic@2.1.0 @angular/router@3.1.0 @types/node@6.0.45 bootstrap@3.3.7 core-js@2.4.1 event-source-polyfill@0.0.7 reflect-metadata@0.1.8 rxjs@5.0.0-beta.12 zone.js@0.6.25
     > ```
 
 1. Ahora, agregaremos las dependencias de las herramientas que necesitamos para el desarrollo, tales como _TypeScript_ y _Webpack_. Para esto agregar el siguiente nodo dentro del _package.json_.
@@ -78,11 +80,10 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
       "raw-loader": "0.5.1",
       "rimraf": "2.5.4",
       "style-loader": "0.13.1",
-      "ts-loader": "0.8.2",
-      "typescript": "1.8.10",
-      "typings": "1.3.3",
+      "ts-loader": "0.9.3",
+      "typescript": "2.0.3",
       "webpack": "1.13.2",
-      "webpack-dev-server": "1.15.2",
+      "webpack-dev-server": "1.16.2",
       "webpack-merge": "0.14.1"
     }
     ```
@@ -90,7 +91,7 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
     > **Nota 1**: Nuevamente, esto es similar a agregar las dependencias con el comando `npm install --save-dev` (notar la diferencia entre `--save` y `--save-dev`). El siguiente comando equivale a agregar las dependencias a mano en el archivo y aparte ejecutar `npm install` luego.
     >
     > ```
-    > npm install --save-dev --save-exact angular2-template-loader@0.5.0 css-loader@0.25.0 extract-text-webpack-plugin@1.0.1 file-loader@0.9.0 html-loader@0.4.4 raw-loader@0.5.1 rimraf@2.5.4 style-loader@0.13.1 ts-loader@0.8.2 typescript@1.8.10 typings@1.3.3 webpack@1.13.2 webpack-dev-server@1.15.2 webpack-merge@0.14.1
+    > npm install --save-dev --save-exact angular2-template-loader@0.5.0 css-loader@0.25.0 extract-text-webpack-plugin@1.0.1 file-loader@0.9.0 html-loader@0.4.4 raw-loader@0.5.1 rimraf@2.5.4 style-loader@0.13.1 ts-loader@0.9.3 typescript@2.0.3 webpack@1.13.2 webpack-dev-server@1.16.2 webpack-merge@0.14.1
     > ```
 
     > **Nota 2**: En realidad, todas las dependencias en estos casos son dependencias de desarrollo (es decir _devDependencies_) dado que las herramientas van a copiar lo requerido de nuestras dependencias a los archivos que se utilizarán en producción. Sin embargo, se separan las dependencias para simplificar la comprensión de cuáles son dependencias de la aplicación y cuales de las herramientas.
@@ -101,14 +102,11 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "webpack-dev-server --inline --hot --progress --port 8080",
-      "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
-      "postinstall": "typings install"
+      "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
     },
     ```
 
     > **Nota**: A continuación una breve descripción de cada script.
-    >
-    > - **postinstall**: Este script se ejecutará automáticamente después de ejecutar `npm install` e instalará los _typings_ definidos. _Typings_ es una herramienta que nos sirve para agregar definiciones de tipos a _TypeScript_.
     > 
     > - **start**: Este script ejecutará el server de desarrollo de _Webpack_ en el puerto 8080. Utilizará el archivo _webpack.config.js_ que se creará en la próxima tarea para la configuración de _Webpack_.
     > 
@@ -122,38 +120,32 @@ A la hora de crear una aplicación con _Angular 2_, necesitamos configurar las d
     {
       "compilerOptions": {
         "target": "es5",
-        "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": true,
-        "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "removeComments": false,
-        "noImplicitAny": false
-      }
+        "emitDecoratorMetadata": true,
+        "skipDefaultLibCheck": true,
+        "lib": [ "es6", "es7", "dom" ],
+        "types": [ "node" ]
+      },
+      "exclude": [ "bin", "node_modules" ],
+      "atom": { "rewriteTsconfig": false }
     }
     ```
 
-1. Agregar un nuevo archivo llamado _typings.json_, que tendrá las dependencias de definiciones de tipos de _TypeScript_ que son necesarias. 
-
-1. Agregar el siguiente contenido al archivo recién creado.
-
-    ```json
-    {
-      "globalDependencies": {
-        "core-js": "registry:dt/core-js#0.0.0+20160725163759",
-        "node": "registry:dt/node#6.0.0+20160831021119"
-      }
-    }
-    ```
+    > **Nota**: el type `node` se agregó como dependencia junto a las dependencias de Angular 2 en los pasos anteriores.
+    > 
+    > ```json
+    > "dependencies": {
+    >   "@types/node": "6.0.45"
+    > },
+    > ```
 
 1. Por último, instalar todas las dependencias ejecutando el siguiente comando.
 
     ```
     npm install
     ```
-
-    > **Nota**: Esto debería crear dos nuevas carpetas *node_modules* y _typings_. Si no se creó la carpeta _typings_ ejecutar el comando nuevamente. Si el error persiste, ejecutar el comando *npm install -g typings* y luego *typings install*.
-
 
 ## Tarea 2: Configurando _Webpack_
 
@@ -374,6 +366,7 @@ En esta tarea se crearán los archivos de configuración de _Webpack_. Para eso,
     // Polyfills
     import 'core-js/es6';
     import 'core-js/es7/reflect';
+    import 'event-source-polyfill';
     require('zone.js/dist/zone');
 
     if (process.env.ENV === 'production') {
