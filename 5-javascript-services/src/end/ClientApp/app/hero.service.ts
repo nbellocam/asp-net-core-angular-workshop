@@ -19,8 +19,11 @@ export class HeroService {
   }
   
   getHero(id: number): Promise<Hero> {
-    return this.getHeroes()
-              .then(heroes => heroes.find(hero => hero.id === id));
+    let url = `${this.heroesUrl}/${id}`;
+    return this.http.get(url)
+              .toPromise()
+              .then(response => response.json() as Hero)
+              .catch(this.handleError);
   }
 
   save(hero: Hero): Promise<Hero>  {
@@ -73,3 +76,5 @@ export class HeroService {
     return Promise.reject(error.message || error);
   }
 }
+
+  
