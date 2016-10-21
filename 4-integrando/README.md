@@ -103,7 +103,7 @@ En este módulo veremos una primer versión de esta integración, realizando tod
     
     _Generando los archivos del cliente_
 
-    > **Nota**: Si no se copió las carpeta _node_modules_ y _typings_, ejecutar `npm install` antes de ejecutar el comando.
+    > **Nota**: Si no se copió la carpeta _node_modules_, ejecutar `npm install` antes de ejecutar el comando.
 
 1. Ahora, ejecutar la aplicación con `dotnet run`.
 
@@ -277,8 +277,11 @@ En la tarea anterior se unieron ambas aplicaciones de forma manual. Ahora se arr
 
     ```js
     getHero(id: number): Promise<Hero> {
-      return this.getHeroes()
-                .then(heroes => heroes.find(hero => hero.id === id));
+      let url = `${this.heroesUrl}/${id}`;
+      return this.http.get(url)
+                .toPromise()
+                .then(response => response.json() as Hero)
+                .catch(this.handleError);
     }
     ```
 
